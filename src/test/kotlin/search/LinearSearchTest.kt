@@ -19,4 +19,20 @@ class LinearSearchTest {
 
         assert(linearSearch(array, key) == -1)
     }
+
+    @Test
+    fun testLinearSearch3() {
+        val array = arrayOf('a', 'c', 'e', 'd')
+        val key = 'c'
+
+        assert(linearSearch(array, key) == 1)
+    }
+
+    @Test
+    fun testLinearSearch4() {
+        val array = arrayOf("Hey", "There", "How", "Are", "You")
+        val key = "You"
+
+        assert(linearSearch(array, key) == 4)
+    }
 }

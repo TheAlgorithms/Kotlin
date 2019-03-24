@@ -14,7 +14,7 @@ package search
  * @param key is an element which should be found
  * @return index of the element
  */
-fun linearSearch(array: Array<Int>, key: Int): Int {
+fun <T: Comparable<T>> linearSearch(array: Array<T>, key: T): Int {
     return linearSearchImpl(array, key)
 }
 
@@ -23,7 +23,7 @@ fun linearSearch(array: Array<Int>, key: Int): Int {
  * @param key The element you are looking for
  * @return the location of the key or -1 if the element is not found
  **/
-fun linearSearchImpl(array: Array<Int>, key: Int): Int {
+fun <T: Comparable<T>> linearSearchImpl(array: Array<T>, key: T): Int {
     for (i in array.indices) {
         if (array[i].compareTo(key) == 0) {
             return i
