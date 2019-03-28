@@ -5,6 +5,11 @@ package sort
  *
  * @param array The array to be sorted
  * Sorts the array in increasing order
+ *
+ * Worst-case performance	O(n^2)
+ * Best-case performance	O(n)
+ * Average performance	O(n^2)
+ * Worst-case space complexity	O(1)
  **/
 fun <T: Comparable<T>> bubbleSort(array: Array<T>) {
     val length = array.size - 1
