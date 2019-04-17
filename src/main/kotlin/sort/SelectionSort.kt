@@ -12,20 +12,16 @@ package sort
  * Worst-case space complexity	O(1)
  **/
 fun <T: Comparable<T>> selectionSort(array: Array<T>) {
-
     val length = array.size - 1
 
     for (i in 0..length) {
-
-        // finding minimum in unsorted array
         var idx = i
-        for(j in i+1..length) {
-            if(array[j] < array[idx]) {
+        for (j in i+1..length) {
+            if (array[j] < array[idx]) {
                 idx = j
             }
         }
 
-        // swap elements
-        swapElements(array,i,idx)
+        swapElements(array, i, idx)
     }
 }

@@ -1,6 +1,6 @@
 package sort
 
-import org.junit.Assert
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
 
 class SelectionSortTest {
@@ -10,15 +10,15 @@ class SelectionSortTest {
         val array = arrayOf(4, 3, 2, 8, 1)
         selectionSort(array)
 
-        Assert.assertArrayEquals(array, arrayOf(1, 2, 3, 4, 8))
+        assertArrayEquals(array, arrayOf(1, 2, 3, 4, 8))
     }
 
     @Test
     fun testSelectionSort2() {
-        val array = arrayOf(20,5,16,-1,6)
+        val array = arrayOf(20, 5, 16, -1, 6)
         selectionSort(array)
 
-        Assert.assertArrayEquals(array, arrayOf(-1,5,6,16,20))
+        assertArrayEquals(array, arrayOf(-1, 5, 6, 16, 20))
     }
 
     @Test
@@ -26,6 +26,6 @@ class SelectionSortTest {
         val array = arrayOf("A", "D", "E", "C", "B")
         bubbleSort(array)
 
-        Assert.assertArrayEquals(array, arrayOf("A", "B", "C", "D", "E"))
+        assertArrayEquals(array, arrayOf("A", "B", "C", "D", "E"))
     }
 }
