@@ -24,7 +24,7 @@ class SelectionSortTest {
     @Test
     fun testSelectionSort3() {
         val array = arrayOf("A", "D", "E", "C", "B")
-        bubbleSort(array)
+        selectionSort(array)
 
         assertArrayEquals(array, arrayOf("A", "B", "C", "D", "E"))
     }
