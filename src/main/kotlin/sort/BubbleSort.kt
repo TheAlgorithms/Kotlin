@@ -36,7 +36,7 @@ fun <T: Comparable<T>> bubbleSort(array: Array<T>) {
  * Swaps the element at two indexes
  **/
 fun <T: Comparable<T>> swapElements(array: Array<T>, idx1: Int, idx2: Int) {
-    val temp = array[idx1]
-    array[idx1] = array[idx2]
-    array[idx2] = temp
+    array[idx1] = array[idx2].also {
+        array[idx2] = array[idx1]
+    }
 }
