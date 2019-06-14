@@ -7,59 +7,59 @@ class CircularBufferTest {
 
     @Test
     fun testNormalUsage() {
-        val buffer = CircularBuffer(4)
+        val buffer = CircularBuffer<Char>(4)
 
-        buffer.writeToCharBuffer('a')
-        buffer.writeToCharBuffer('b')
-        buffer.writeToCharBuffer('c')
+        buffer.add('a')
+        buffer.add('b')
+        buffer.add('c')
 
-        assertEquals('a', buffer.readOutChar())
-        assertEquals('b', buffer.readOutChar())
-        assertEquals('c', buffer.readOutChar())
+        assertEquals('a', buffer.poll())
+        assertEquals('b', buffer.poll())
+        assertEquals('c', buffer.poll())
     }
 
     @Test
     fun testSizeReporting() {
-        val buffer = CircularBuffer(4)
+        val buffer = CircularBuffer<Char>(4)
 
-        buffer.writeToCharBuffer('a')
+        buffer.add('a')
         assertEquals(1, buffer.size())
-        buffer.writeToCharBuffer('b')
+        buffer.add('b')
         assertEquals(2, buffer.size())
-        buffer.writeToCharBuffer('c')
+        buffer.add('c')
         assertEquals(3, buffer.size())
 
-        buffer.readOutChar()
+        buffer.poll()
         assertEquals(2, buffer.size())
-        buffer.readOutChar()
+        buffer.poll()
         assertEquals(1, buffer.size())
-        buffer.readOutChar()
+        buffer.poll()
         assertEquals(0, buffer.size())
     }
 
     @Test(expected = IllegalStateException::class)
     fun testBufferFull() {
-        val buffer = CircularBuffer(2)
+        val buffer = CircularBuffer<Char>(2)
 
-        buffer.writeToCharBuffer('a')
-        buffer.writeToCharBuffer('b')
-        buffer.writeToCharBuffer('c')
+        buffer.add('a')
+        buffer.add('b')
+        buffer.add('c')
 
-        assertEquals('a', buffer.readOutChar())
-        assertEquals('b', buffer.readOutChar())
-        assertEquals(null, buffer.readOutChar())
+        assertEquals('a', buffer.poll())
+        assertEquals('b', buffer.poll())
+        assertEquals(null, buffer.poll())
     }
 
     @Test
     fun testBufferOverflow() {
-        val buffer = CircularBuffer(2)
+        val buffer = CircularBuffer<Char>(2)
 
-        buffer.writeToCharBuffer('a')
-        buffer.writeToCharBuffer('b')
-        assertEquals('a', buffer.readOutChar())
-        assertEquals('b', buffer.readOutChar())
+        buffer.add('a')
+        buffer.add('b')
+        assertEquals('a', buffer.poll())
+        assertEquals('b', buffer.poll())
 
-        buffer.writeToCharBuffer('c')
-        assertEquals('c', buffer.readOutChar())
+        buffer.add('c')
+        assertEquals('c', buffer.poll())
     }
 }

@@ -1,10 +1,7 @@
 package datastructures.buffers
 
-import kotlin.IllegalArgumentException
-import kotlin.IllegalStateException
-
-class CircularBuffer(private val bufferSize: Int) {
-    private var buffer: Array<Char>
+class CircularBuffer<T>(private val bufferSize: Int) {
+    private var buffer: Array<Any?>
     private var writeIndex = 0
     private var readIndex = 0
     private var readableData = 0
@@ -13,24 +10,25 @@ class CircularBuffer(private val bufferSize: Int) {
         if (!isPowerOfTwo(bufferSize)) {
             throw IllegalArgumentException()
         }
-        buffer = Array(bufferSize) { 0.toChar() }
+        buffer = arrayOfNulls<Any?>(bufferSize)
     }
 
-    fun readOutChar(): Char {
+    fun poll(): T {
         if (readableData <= 0) {
             throw IllegalStateException("Cannot read from empty buffer")
         }
         val result = buffer[getTrueIndex(readIndex)]
         readableData--
         readIndex++
-        return result
+        @Suppress("UNCHECKED_CAST")
+        return result as T
     }
 
-    fun writeToCharBuffer(c: Char) {
+    fun add(element: T) {
         if (readableData >= bufferSize) {
             throw IllegalStateException("Cannot write to full buffer")
         }
-        buffer[getTrueIndex(writeIndex)] = c
+        buffer[getTrueIndex(writeIndex)] = element
         readableData++
         writeIndex++
     }
@@ -40,14 +38,4 @@ class CircularBuffer(private val bufferSize: Int) {
     private fun getTrueIndex(index: Int) = index % bufferSize
 
     fun size() = readableData
-}
-
-fun main() {
-    val buff = CircularBuffer(1024)
-
-    buff.writeToCharBuffer('f')
-    buff.writeToCharBuffer('o')
-
-    println(buff.readOutChar())
-    println(buff.readOutChar())
 }
