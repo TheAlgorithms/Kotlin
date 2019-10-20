@@ -7,8 +7,8 @@ import java.security.InvalidParameterException
  * @param number The number of which to calculate the factorial.
  * @return The factorial of the number passed as parameter.
  */
-fun getFactorial(number: Int): Int {
-    if (number < 0) {
+fun getFactorial(number: Long): Long {
+    if (number < 0L) {
         throw InvalidParameterException("The number of which to calculate the factorial must be greater or equal to zero.")
     } else return if (number == 0) {
         1
