@@ -3,7 +3,7 @@ package mathematics
 import java.security.InvalidParameterException
 
 /**
- * Calculates the factorial of a natural number grater than 0 recursively.
+ * Calculates the factorial of a natural number greater than or equal to 0 recursively.
  * @param number The number of which to calculate the factorial.
  * @return The factorial of the number passed as parameter.
  */
