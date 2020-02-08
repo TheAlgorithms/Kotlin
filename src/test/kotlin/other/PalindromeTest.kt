@@ -22,4 +22,10 @@ class PalindromeTest {
         val text = "Hannah"
         assertTrue(isPalindrome(text))
     }
+
+    @Test
+    fun testPalindromeNumber() {
+        val text = "2002"
+        assertTrue(isPalindrome(text))
+    }
 }
