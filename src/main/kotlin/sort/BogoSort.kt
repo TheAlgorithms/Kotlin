@@ -17,12 +17,10 @@ fun <T: Comparable<T>> bogoSort(array: Array<T>) {
     val length = array.size - 1
 
     var i = 0
-    var testNum = 1
     while ( i != length ) {
         if (array[i] > array[i+1]) {
             array.shuffle()
             i = 0
-            testNum ++
         } else {
             i ++
         }
