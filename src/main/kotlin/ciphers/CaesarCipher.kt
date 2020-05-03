@@ -1,7 +1,7 @@
 package ciphers
 
 /**
- * Encrypts the input string using the Caesar Ciphre
+ * Encrypts the input string using the Caesar cipher
  * @param plainText the text which should be encrypted
  * @param shift the shift used
  * @return the encrypted text
@@ -14,10 +14,10 @@ fun caesarCipher(plainText: String, shift: Int): String {
 }
 
 /**
- * Rotates a single Character by shift
- * @param inChar the input charackter
+ * Rotates a single character by shift
+ * @param inChar the input character
  * @param shift the amount to shift
- * @return the shifted charackter
+ * @return the shifted character
  */
 fun caesarRotate(inChar: Char, shift: Int): Char {
     assert(shift >= 0)
@@ -29,8 +29,8 @@ fun caesarRotate(inChar: Char, shift: Int): Char {
 }
 
 /**
- * Gets the offset of the Alphabet in the ASCII table.
- * @param inChar the charackter for witch the offset is to be determined
+ * Gets the offset of the alphabet in the ASCII table.
+ * @param inChar the character for witch the offset is to be determined
  * @return the offset. Is -1 if inChar is a special character -1
  */
 fun getAlphabetOffset(inChar: Char): Int {

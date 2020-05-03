@@ -1,7 +1,7 @@
 package ciphers
 
 /**
- * Encrypts the input string using the Vigenère Cipher
+ * Encrypts the input string using the Vigenère cipher
  * @param plainText the text which should be encrypted
  * @param key the key which is used to encrypt the input text (only the characters a-z and A-Z are allowed)
  * @return the encrypted text
@@ -10,7 +10,7 @@ fun vigenereCipherEncrypt(plainText: String, key: String): String
         = vigenereCipher(plainText, key, false)
 
 /**
- * Decrypts an input string encrypted using the Vigenère Cipher
+ * Decrypts an input string encrypted using the Vigenère cipher
  * @param cipherText the text which should be decrypted
  * @param key the key which is used to encrypt the input text (only the characters a-z and A-Z are allowed)
  * @return the decrypted text
@@ -19,11 +19,11 @@ fun vigenereCipherDecrypt(cipherText: String, key: String): String
         = vigenereCipher(cipherText, key, true)
 
 /**
- * Applys the Vigenère Cipher to the input text
- * @param inputText the input text to which the Vigenère Cipher is applyed
+ * Applies the Vigenère cipher to the input text
+ * @param inputText the input text to which the Vigenère cipher is applied
  * @param key the key which is used to encrypt the input text (only the characters a-z and A-Z are allowed)
  * @param decrypt when false the input text is Vigenère encrypted. When true the input text is Vigenère decrypted
- * @return the text on which the Vigenère Cipher has been applyed
+ * @return the text on which the Vigenère cipher has been applied
  */
 private fun vigenereCipher(inputText: String, key: String, decrypt: Boolean): String {
     var i = 0
