@@ -1,8 +1,6 @@
 package ciphers
 
-import caesarCipher
 import org.junit.Test
-
 import org.junit.Assert.*
 
 class CaesarCipherTest {
