@@ -1,6 +1,5 @@
 package DataStructures.Trees
 
-
 /**
  * This entire class is used to build a Binary Tree data structure.
  * There is the Node Class and the Tree Class, both explained below.
@@ -19,9 +18,11 @@ package DataStructures.Trees
 class BinaryTree(rootValue: Int) {
 
     var root: Node
+    var outputBuffer: String
 
     init {
         this.root = Node(rootValue, null)
+        this.outputBuffer = ""
     }
 
     /**
@@ -151,7 +152,7 @@ class BinaryTree(rootValue: Int) {
                 node.left = Node(value, node)
                 return true
             }
-        //Go to the left branch if the value to insert is bigger than the current node value
+            //Go to the left branch if the value to insert is bigger than the current node value
         } else if (value > node.value) {
             if (node.hasRight()) {
                 insertNode(node.right, value)
@@ -171,7 +172,8 @@ class BinaryTree(rootValue: Int) {
     fun traverseInOrder(node: Node?) {
         if (node != null) {
             traverseInOrder(node.left)
-            print(" " + node.value)
+            // print(" " + node.value)
+            outputBuffer += " " + node.value
             traverseInOrder(node.right)
         }
     }
@@ -185,7 +187,8 @@ class BinaryTree(rootValue: Int) {
         if (node != null) {
             traversePostOrder(node.left)
             traversePostOrder(node.right)
-            print(" " + node.value)
+            // print(" " + node.value)
+            outputBuffer += " " + node.value
         }
     }
 
@@ -196,10 +199,25 @@ class BinaryTree(rootValue: Int) {
      */
     fun traversePreOrder(node: Node?) {
         if (node != null) {
-            print(" " + node.value)
+            outputBuffer += " " + node.value
+            //print(" " + node.value)
             traversePreOrder(node.left)
             traversePreOrder(node.right)
         }
+    }
+
+    fun traverse(order: String) : String {
+        when (order) {
+            "in" -> this.traverseInOrder(this.root)
+            "post" -> this.traversePostOrder(this.root)
+            "pre" -> this.traversePreOrder(this.root)
+            else -> {
+                outputBuffer = "Please use in, post or pre as argument";
+            }
+        }
+        val output = outputBuffer
+        outputBuffer = ""
+        return output.trim()
     }
 
 }
