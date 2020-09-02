@@ -53,8 +53,8 @@ fun palindromePartition(string: String, i: Int, j: Int): Int {
     }
     dp[i][j] = mn
     return dp[i][j]
-
 }
+
 
 /**
  * memoization table
@@ -66,11 +66,6 @@ lateinit var dp: Array<Array<Int>>
  * @param String the string on which algorithm is to be operated
  */
 fun initialize(string: String): Int {
-
     dp = Array(string.length) { Array(string.length) { -1 } }
     return palindromePartition(string, 0, string.length - 1)
 }
-
-
-
-
