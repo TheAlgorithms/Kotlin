@@ -5,7 +5,8 @@ package dynamic_programming
  *
  * You are given a string as input, and task is to find the minimum number of partitions to be made,
  * in the string sot that the resulting strings are all palindrome
- *
+ * eg. s = "nitik"
+ * string s can be partitioned as n | iti | k into 3 palindromes, thus the number of partions are 2
  * Time Complexity = O(n^2)
  *
  * */
