@@ -1,5 +1,6 @@
 import java.util.Arrays
-fun pigeonhole_sort(arr: IntArray, n: Int):IntArray {
+
+fun pigeonholeSort(arr: IntArray, n: Int):IntArray {
     var min = arr[0]
     var max = arr[0]
     val range: Int
@@ -19,25 +20,17 @@ fun pigeonhole_sort(arr: IntArray, n: Int):IntArray {
     Arrays.fill(phole, 0)
 
     i = 0
-    while (i < n) {
+    for(i in 0 until n) {
         phole[arr[i] - min]++
-        i++
+        
     }
-
-
+    
     index = 0
-
     j = 0
-    while (j < range) {
+    for(j in 0 until range) {
         while (phole[j]-- > 0)
-            arr[index++] = j + min
-        j++
+        	arr[index++] = j + min     
     }
+
     return arr
-
-}
-
-fun main(args: Array<String>) {
-    val l = intArrayOf(-18,-2,12,23,4,2,6,1,0,-7,77)
-    println(pigeonhole_sort(l, l.size).contentToString())
 }
