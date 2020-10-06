@@ -68,14 +68,25 @@ class LempelZivWelchTest {
     }
 
     @Test
-    fun test0() {
+    fun testCompression1() {
         val data = "Hello hello I'm a data.".toByteArray().toBitArray()
         val expected = "001000010000111000010100110011000100110110111010000000010110011000001001010111010011010010001101111001001000111011111011010101011000001010011000110000010000000000011100001000001011111000010001001010100001010000000"
             .map { it.toInt() - '0'.toInt() }.toTypedArray()
         val result = compressDataLzw(data)
         assertEqualArrays(expected, result)
     }
-    /*
+
+    @Test
+    fun testDecompression1() {
+        val data = "001000010000111000010100110011000100110110111010000000010110011000001001010111010011010010001101111001001000111011111011010101011000001010011000110000010000000000011100001000001011111000010001001010100001010000000"
+            .map { it.toInt() - '0'.toInt() }.toTypedArray()
+        val expected = "010010000110010101101100011011000110111100100000011010000110010101101100011011000110111100100000010010010010011101101101001000000110000100100000011001000110000101110100011000010010111000000"
+            .map { it.toInt() - '0'.toInt() }.toTypedArray()
+        val result = decompressDataLzw(data)
+        assertEqualArrays(expected, result)
+    }
+/*
+
     @Test(timeout = 1000)
     fun test1() {
         val data = "Hello hello I'm a data.".toByteArray().toBitArray()
@@ -91,5 +102,6 @@ class LempelZivWelchTest {
         val decompressedData = decompressDataLzw(compressedData)
         assertEqualArrays(data, decompressedData)
     }
-    */
+*/
+
 }

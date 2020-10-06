@@ -2,7 +2,6 @@
 
 package compression
 
-import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import kotlin.math.log2
@@ -25,12 +24,18 @@ fun ByteArray.toBitArray(): Array<Int> {
 }
 
 /**
+ * Compress an array of bits
+ *
  * One of the several implementations of Lempel–Ziv–Welch compression algorithm
  * https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch
+ *
+ * @param data The binary array to compress
+ * @return compressed binary array
  */
 
 fun compressDataLzw(data: Array<Bit>): Array<Bit> {
-    var lexicon = HashMap<List<Bit>, List<Bit>>(data.size / 2)
+    var lexicon = HashMap<List<Bit>, List<Bit>>(data.size)
+    // Original bits
     lexicon[listOf(0)] = listOf(0)
     lexicon[listOf(1)] = listOf(1)
 
@@ -41,18 +46,29 @@ fun compressDataLzw(data: Array<Bit>): Array<Bit> {
 
     for (bit in data) {
         current.add(bit)
-        val lastMatch = lexicon[current] ?: continue
-        result.add(lastMatch)
 
-        // add key to lexicon
+        /*
+         * When we found current bit array in lexicon, we add current to lexicon and
+         * we add (current + 0) and (current + 1) to lexicon
+         */
+        val currentMatch = lexicon[current] ?: continue
+        result.add(currentMatch)
+
         lexicon.remove(current)
-        lexicon[current + 0] = lastMatch
+        lexicon[current + 0] = currentMatch
+
+        /*
+         * If log2(index) is integer we need bigger number to store index
+         * index < 2 -> two values can be stored
+         * 2 <= index < 4 -> 4 values can be stored
+         * When we increase the size to store index, we add 0 before each other
+         */
         if (log2(index.toFloat()).isInteger()) {
             // Add one zero before each other values to make it possible to have more index value
             lexicon = lexicon.mapValuesTo(HashMap(lexicon.size * 2)) { (_, value) -> listOf(0) + value }
         }
-        val temp = Integer.toBinaryString(index).toList().map { it.toInt() - '0'.toInt() }
-        lexicon[current + 1] = temp
+
+        lexicon[current + 1] = Integer.toBinaryString(index).toList().map { it.toInt() - '0'.toInt() }
 
         index++
         current.clear()
@@ -90,10 +106,13 @@ fun decompressDataLzw(data: Array<Bit>): Array<Bit> {
         if (log2(index.toFloat()).isInteger()) {
             lexicon = lexicon.mapKeysTo(HashMap(lexicon.size * 2)) { (key, _) -> listOf(0) + key }
         }
-        lexicon[Integer.toBinaryString(index).toList().map { it.toInt() }] = lastMatch + 1
+
+        lexicon[Integer.toBinaryString(index).toList().map { it.toInt() - '0'.toInt() }] = lastMatch + 1
+
         index++
         current.clear()
     }
+
     return result.flatten().toTypedArray()
 }
 
