@@ -41,13 +41,55 @@ class IsIntegerTest(private val number: Float, private val isInteger: Boolean) {
     }
 }
 
+@RunWith(Parameterized::class)
+class ByteArrayToBitArrayTest(private val input: ByteArray, private val expected: String) {
+    companion object {
+        @JvmStatic
+        @Parameterized.Parameters
+        fun data() = listOf(
+            arrayOf(byteArrayOf(72, 98), "0100 1000 0110 0010"),
+        )
+    }
+
+    @Test
+    fun testIsInteger() {
+        val result = input.toBitArray().toList()
+        val expected = expected.replace(" ", "").map { it.toInt() - '0'.toInt() }
+        assertEquals(expected, result)
+    }
+}
+
 
 class LempelZivWelchTest {
+    private fun <T> assertEqualArrays(array1: Array<T>, array2: Array<T>) {
+        assertEquals(array1.size, array2.size, "Lengths different")
+        for (i in array1.indices)
+            assertEquals(array1[i], array2[i], "index: $i => 1: ${array1[i]}, 2: ${array2[i]}")
+    }
+
+    @Test
+    fun test0() {
+        val data = "Hello hello I'm a data.".toByteArray().toBitArray()
+        val expected = "001000010000111000010100110011000100110110111010000000010110011000001001010111010011010010001101111001001000111011111011010101011000001010011000110000010000000000011100001000001011111000010001001010100001010000000"
+            .map { it.toInt() - '0'.toInt() }.toTypedArray()
+        val result = compressDataLzw(data)
+        assertEqualArrays(expected, result)
+    }
+    /*
     @Test(timeout = 1000)
     fun test1() {
-        val data = loremIpsum.map { it.toInt() }.toIntArray()
+        val data = "Hello hello I'm a data.".toByteArray().toBitArray()
         val compressedData = compressDataLzw(data)
-        val decompressedData = decompressDataLzw(data)
-        assertEquals(data, decompressedData)
+        val decompressedData = decompressDataLzw(compressedData)
+        assertEqualArrays(data, decompressedData)
     }
+
+    @Test(timeout = 1000)
+    fun test2() {
+        val data = loremIpsum.toByteArray().toBitArray()
+        val compressedData = compressDataLzw(data)
+        val decompressedData = decompressDataLzw(compressedData)
+        assertEqualArrays(data, decompressedData)
+    }
+    */
 }
