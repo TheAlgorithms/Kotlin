@@ -1,3 +1,5 @@
+package sort
+
 fun <T : Comparable<T>> isSorted(list: List<T>): Boolean {
     val size = list.size
     if (size < 2) return true
@@ -34,14 +36,3 @@ fun <T : Comparable<T>> permutationSort(input: List<T>): List<T> {
     return input
 }
  
-fun main(args: Array<String>) {
-    val input = listOf('d', 'b', 'e', 'a', 'f', 'c')
-    println("Before sorting : $input")
-    val output = permutationSort(input)
-    println("After sorting  : $output")
-    println()
-    val input2 = listOf("first", "second", "third", "fourth", "fifth", "sixth")
-    println("Before sorting : $input2")
-    val output2 = permutationSort(input2)
-    println("After sorting  : $output2")
-}
