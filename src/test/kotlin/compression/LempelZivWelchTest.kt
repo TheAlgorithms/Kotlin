@@ -1,9 +1,9 @@
 package compression
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
 
 val loremIpsum = """
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor suscipit interdum. Vestibulum ac molestie felis. Phasellus facilisis ultricies purus eget ultrices. Donec cursus mi sit amet eleifend fermentum. Donec ut leo blandit tellus auctor eleifend. Aenean efficitur euismod leo, sed consequat elit hendrerit ac. Vivamus fermentum lobortis mi, sit amet mattis mauris euismod quis.
