@@ -30,7 +30,7 @@ class IsIntegerTest(private val number: Float, private val isInteger: Boolean) {
 
             arrayOf(1.5f, false),
             // arrayOf(2.999999999999f, false), // Precision Error
-            arrayOf(0.111111111111f, false),
+            arrayOf(0.111111111111f, false)
             // arrayOf(10_000_000_000.5f, false), // Precision Error
         )
     }
@@ -47,7 +47,7 @@ class ByteArrayToBitArrayTest(private val input: ByteArray, private val expected
         @JvmStatic
         @Parameterized.Parameters
         fun data() = listOf(
-            arrayOf(byteArrayOf(72, 98), "0100 1000 0110 0010"),
+            arrayOf(byteArrayOf(72, 98), "0100 1000 0110 0010")
         )
     }
 
@@ -61,10 +61,19 @@ class ByteArrayToBitArrayTest(private val input: ByteArray, private val expected
 
 
 class LempelZivWelchTest {
-    private fun <T> assertEqualArrays(array1: Array<T>, array2: Array<T>) {
-        assertEquals(array1.size, array2.size, "Lengths different")
+    private fun <T> assertEqualArrays(array1: Array<T>, array2: Array<T>, message: String? = null) {
+        val messageString = if (message == null) "" else "($message)"
+        assertEquals("Lengths different $messageString", array1.size, array2.size)
         for (i in array1.indices)
-            assertEquals(array1[i], array2[i], "index: $i => 1: ${array1[i]}, 2: ${array2[i]}")
+            assertEquals("$messageString index: $i => 1: ${array1[i]}, 2: ${array2[i]}", array1[i], array2[i])
+    }
+
+    @Test
+    fun testStringToBitArray() {
+        val data = "Hello hello I'm a data.".toByteArray().toBitArray()
+        val expected = "0100100001100101011011000110110001101111001000000110100001100101011011000110110001101111001000000100100100100111011011010010000001100001001000000110010001100001011101000110000100101110"
+            .map { it.toInt() - '0'.toInt() }.toTypedArray()
+        assertEqualArrays(expected, data)
     }
 
     @Test
@@ -80,14 +89,13 @@ class LempelZivWelchTest {
     fun testDecompression1() {
         val data = "001000010000111000010100110011000100110110111010000000010110011000001001010111010011010010001101111001001000111011111011010101011000001010011000110000010000000000011100001000001011111000010001001010100001010000000"
             .map { it.toInt() - '0'.toInt() }.toTypedArray()
-        val expected = "010010000110010101101100011011000110111100100000011010000110010101101100011011000110111100100000010010010010011101101101001000000110000100100000011001000110000101110100011000010010111000000"
+        val expected = "0100100001100101011011000110110001101111001000000110100001100101011011000110110001101111001000000100100100100111011011010010000001100001001000000110010001100001011101000110000100101110"
             .map { it.toInt() - '0'.toInt() }.toTypedArray()
         val result = decompressDataLzw(data)
         assertEqualArrays(expected, result)
     }
-/*
 
-    @Test(timeout = 1000)
+    @Test
     fun test1() {
         val data = "Hello hello I'm a data.".toByteArray().toBitArray()
         val compressedData = compressDataLzw(data)
@@ -102,6 +110,5 @@ class LempelZivWelchTest {
         val decompressedData = decompressDataLzw(compressedData)
         assertEqualArrays(data, decompressedData)
     }
-*/
 
 }

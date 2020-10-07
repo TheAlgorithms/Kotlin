@@ -113,6 +113,12 @@ fun decompressDataLzw(data: Array<Bit>): Array<Bit> {
         current.clear()
     }
 
-    return result.flatten().toTypedArray()
+    var returnValue = result.flatten()
+    if (returnValue.size.toFloat() % 8.0f != 0.0f) {
+        val wantedLength = (returnValue.size / 8) * 8
+        returnValue = returnValue.take(wantedLength)
+    }
+
+    return returnValue.toTypedArray()
 }
 
