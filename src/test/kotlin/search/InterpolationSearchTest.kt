@@ -1,9 +1,9 @@
 package search
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
 class InterpolationSearchTest(
@@ -45,7 +45,7 @@ class InterpolationSearchTest(
                     300_000,
                     400_000
                 ), 5000, 15
-            ),
+            )
         )
     }
 
