@@ -10,7 +10,7 @@ typealias Bit = Int
 
 fun Float.isInteger() = this % 1 == 0.0f
 
-fun Int.getBitAt(position: Int): Bit = (this shr position) and 1
+private fun Int.getBitAt(position: Int): Bit = (this shr position) and 1
 
 fun ByteArray.toBitArray(): Array<Int> {
     val result = Array(size * 8) { -1 }
@@ -86,6 +86,11 @@ fun compressDataLzw(data: Array<Bit>): Array<Bit> {
     return result.flatten().toTypedArray()
 }
 
+/**
+ * Decompress an array of bit compressed with {@link compressDataLzw}
+ * @param data The binary array compressed to decompress
+ * @return decompressed binary array
+ */
 fun decompressDataLzw(data: Array<Bit>): Array<Bit> {
     var lexicon = HashMap<List<Bit>, List<Bit>>(data.size / 2)
     lexicon[listOf(0)] = listOf(0)
@@ -113,6 +118,7 @@ fun decompressDataLzw(data: Array<Bit>): Array<Bit> {
         current.clear()
     }
 
+    // Remove trailing zeros to have a length divisible by 8
     var returnValue = result.flatten()
     if (returnValue.size.toFloat() % 8.0f != 0.0f) {
         val wantedLength = (returnValue.size / 8) * 8

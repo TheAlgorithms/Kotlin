@@ -68,7 +68,7 @@ class LempelZivWelchTest {
             assertEquals("$messageString index: $i => 1: ${array1[i]}, 2: ${array2[i]}", array1[i], array2[i])
     }
 
-    @Test
+    @Test(timeout = 1000)
     fun testStringToBitArray() {
         val data = "Hello hello I'm a data.".toByteArray().toBitArray()
         val expected = "0100100001100101011011000110110001101111001000000110100001100101011011000110110001101111001000000100100100100111011011010010000001100001001000000110010001100001011101000110000100101110"
@@ -76,7 +76,7 @@ class LempelZivWelchTest {
         assertEqualArrays(expected, data)
     }
 
-    @Test
+    @Test(timeout = 1000)
     fun testCompression1() {
         val data = "Hello hello I'm a data.".toByteArray().toBitArray()
         val expected = "001000010000111000010100110011000100110110111010000000010110011000001001010111010011010010001101111001001000111011111011010101011000001010011000110000010000000000011100001000001011111000010001001010100001010000000"
@@ -85,7 +85,7 @@ class LempelZivWelchTest {
         assertEqualArrays(expected, result)
     }
 
-    @Test
+    @Test(timeout = 1000)
     fun testDecompression1() {
         val data = "001000010000111000010100110011000100110110111010000000010110011000001001010111010011010010001101111001001000111011111011010101011000001010011000110000010000000000011100001000001011111000010001001010100001010000000"
             .map { it.toInt() - '0'.toInt() }.toTypedArray()
@@ -95,7 +95,7 @@ class LempelZivWelchTest {
         assertEqualArrays(expected, result)
     }
 
-    @Test
+    @Test(timeout = 1000)
     fun test1() {
         val data = "Hello hello I'm a data.".toByteArray().toBitArray()
         val compressedData = compressDataLzw(data)
