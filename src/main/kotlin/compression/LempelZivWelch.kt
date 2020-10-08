@@ -26,8 +26,8 @@ fun Float.isInteger() = this % 1 == 0.0f
  * Based on the Python version
  * https://github.com/TheAlgorithms/Python/blob/master/compression/lempel_ziv.py
  *
- * @param data The binary array to compress
- * @return compressed binary array
+ * @param inputStream binary input stream from which we can read bit by bit
+ * @param outputStream binary output stream to which we can write bit by bit
  */
 
 fun compressLzw(inputStream: BitInputStream, outputStream: BitOutputStream) {
@@ -86,8 +86,9 @@ fun compressLzw(inputStream: BitInputStream, outputStream: BitOutputStream) {
 
 /**
  * Decompress an array of bit compressed with {@link compressDataLzw}
- * @param data The binary array compressed to decompress
- * @return decompressed binary array
+ *
+ * @param inputStream binary input stream from which we can read bit by bit
+ * @param outputStream binary output stream to which we can write bit by bit
  */
 fun decompressLzw(inputStream: BitInputStream, outputStream: BitOutputStream) {
     var lexicon = HashMap<List<Int>, List<Int>>()
@@ -122,6 +123,9 @@ fun decompressLzw(inputStream: BitInputStream, outputStream: BitOutputStream) {
     outputStream.flush()
 }
 
+/**
+ * Read InputStream bit by bit
+ */
 class BitInputStream(private val inputStream: InputStream) : InputStream() {
     private var index = 7
     private var byte = inputStream.read()
@@ -143,6 +147,9 @@ class BitInputStream(private val inputStream: InputStream) : InputStream() {
     }
 }
 
+/**
+ * Write to OutputStream bit by bit
+ */
 class BitOutputStream(private val outputStream: OutputStream) : OutputStream() {
     private var index = 7
     private var byte: Int = 0
@@ -169,6 +176,9 @@ class BitOutputStream(private val outputStream: OutputStream) : OutputStream() {
         index--
     }
 
+    /**
+     * Remove trailing zeros if last byte is not complete
+     */
     fun discardByteIfZero(): Boolean {
         if (byte == 0) {
             index = 7
