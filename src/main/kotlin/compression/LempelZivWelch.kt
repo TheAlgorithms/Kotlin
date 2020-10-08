@@ -41,7 +41,7 @@ fun compressLzw(inputStream: BitInputStream, outputStream: BitOutputStream) {
     var index = lexicon.size
 
     var bit = inputStream.read()
-    while(bit != -1) {
+    while (bit != -1) {
         current.add(bit)
         bit = inputStream.read()
 

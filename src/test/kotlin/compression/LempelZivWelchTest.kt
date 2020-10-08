@@ -91,7 +91,35 @@ class LempelZivWelchTest {
     @Test(timeout = 1000)
     fun testCompression1() {
         val data = "Hello hello I'm a data.".toByteArray().map { it.toInt() }
-        val expected = listOf(33, 14, 20, 204, 77, 186, 1, 102, 9, 93, 52, 141, 228, 142, 251, 85, 130, 152, 193, 0, 28, 32, 190, 17, 42, 20, 0)
+        val expected = listOf(
+            33,
+            14,
+            20,
+            204,
+            77,
+            186,
+            1,
+            102,
+            9,
+            93,
+            52,
+            141,
+            228,
+            142,
+            251,
+            85,
+            130,
+            152,
+            193,
+            0,
+            28,
+            32,
+            190,
+            17,
+            42,
+            20,
+            0
+        )
         compressLzw(toInputStream(data), bitOutputStream)
         assertEquals(expected, result)
     }
