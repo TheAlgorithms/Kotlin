@@ -2,6 +2,8 @@
 
 package compression
 
+import java.io.InputStream
+import java.io.OutputStream
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import kotlin.math.log2
@@ -16,14 +18,11 @@ fun Int.toBitList(): List<Int> {
 
 fun Float.isInteger() = this % 1 == 0.0f
 
-private fun Int.getBitAt(position: Int): Bit = (this shr position) and 1
-
-fun ByteArray.toBitArray(): Array<Int> {
-    val result = Array(size * 8) { -1 }
-    var index = 0
+fun ByteArray.toBitList(): List<Int> {
+    val result = ArrayList<Int>(size * 8)
     for (byte in this) {
         for (i in 7 downTo 0) {
-            result[index++] = (byte.toInt() shr i) and 1
+            result.add((byte.toInt() shr i) and 1)
         }
     }
     return result
@@ -41,29 +40,30 @@ fun ByteArray.toBitArray(): Array<Int> {
  * @return compressed binary array
  */
 
-fun compressDataLzw(data: Array<Int>): Array<Int> {
-    var lexicon = HashMap<List<Int>, List<Int>>(data.size)
+fun compressLzw(inputStream: BitInputStream, outputStream: BitOutputStream) {
+    var lexicon = HashMap<List<Int>, List<Int>>()
     // Original bits
     lexicon[listOf(0)] = listOf(0)
     lexicon[listOf(1)] = listOf(1)
 
-    val result = ArrayList<List<Int>>(data.size)
     val current = ArrayList<Int>(20)
 
     var index = lexicon.size
 
-    for (bit in data) {
+    var bit = inputStream.read()
+    while(bit != -1) {
         current.add(bit)
+        bit = inputStream.read()
 
         /*
          * When we found current bit array in lexicon, we add current to lexicon and
          * we add (current + 0) and (current + 1) to lexicon
          */
-        val currentMatch = lexicon[current] ?: continue
-        result.add(currentMatch)
+        val match = lexicon[current] ?: continue
+        outputStream.write(match)
 
         lexicon.remove(current)
-        lexicon[current + 0] = currentMatch
+        lexicon[current + 0] = match
 
         /*
          * If log2(index) is integer we need bigger number to store index
@@ -73,7 +73,7 @@ fun compressDataLzw(data: Array<Int>): Array<Int> {
          */
         if (log2(index.toFloat()).isInteger()) {
             // Add one zero before each other values to make it possible to have more index value
-            lexicon = lexicon.mapValuesTo(HashMap(lexicon.size * 2)) { (_, value) -> listOf(0) + value }
+            lexicon = lexicon.mapValuesTo(HashMap(lexicon.size)) { (_, value) -> listOf(0) + value }
         }
 
         lexicon[current + 1] = index.toBitList()
@@ -87,11 +87,11 @@ fun compressDataLzw(data: Array<Int>): Array<Int> {
     }
 
     if (current.isNotEmpty()) {
-        val lastMatch = lexicon.getValue(current)
-        result.add(lastMatch)
+        val match = lexicon.getValue(current)
+        outputStream.write(match)
     }
 
-    return result.flatten().toTypedArray()
+    outputStream.flush()
 }
 
 /**
@@ -99,40 +99,96 @@ fun compressDataLzw(data: Array<Int>): Array<Int> {
  * @param data The binary array compressed to decompress
  * @return decompressed binary array
  */
-fun decompressDataLzw(data: Array<Int>): Array<Int> {
-    var lexicon = HashMap<List<Int>, List<Int>>(data.size / 2)
+fun decompressLzw(inputStream: BitInputStream, outputStream: BitOutputStream) {
+    var lexicon = HashMap<List<Int>, List<Int>>()
     lexicon[listOf(0)] = listOf(0)
     lexicon[listOf(1)] = listOf(1)
 
-    val result = ArrayList<List<Int>>(data.size)
     val current = ArrayList<Int>(20)
 
     var index = lexicon.size
 
-    for (bit in data) {
+    var bit = inputStream.read()
+    while (bit != -1) {
         current.add(bit)
-        val lastMatch = lexicon[current] ?: continue
-        result.add(lastMatch)
+        bit = inputStream.read()
 
-        lexicon[current] = lastMatch + 0
+        val match = lexicon[current] ?: continue
+        outputStream.write(match)
+
+        lexicon[current] = match + 0
 
         if (log2(index.toFloat()).isInteger()) {
-            lexicon = lexicon.mapKeysTo(HashMap(lexicon.size * 2)) { (key, _) -> listOf(0) + key }
+            lexicon = lexicon.mapKeysTo(HashMap(lexicon.size)) { (key, _) -> listOf(0) + key }
         }
 
-        lexicon[index.toBitList()] = lastMatch + 1
+        lexicon[index.toBitList()] = match + 1
 
         index++
         current.clear()
     }
 
-    // Remove trailing zeros to have a length divisible by 8
-    var returnValue = result.flatten()
-    if (returnValue.size.toFloat() % 8.0f != 0.0f) {
-        val wantedLength = (returnValue.size / 8) * 8
-        returnValue = returnValue.take(wantedLength)
+    outputStream.discardByteIfZero()
+    outputStream.flush()
+}
+
+class BitInputStream(private val inputStream: InputStream) : InputStream() {
+    private var index = 7
+    private var byte = inputStream.read()
+
+    override fun close() {
+        inputStream.close()
     }
 
-    return returnValue.toTypedArray()
+    override fun read(): Int {
+        if (index < 0) {
+            index = 7
+            byte = inputStream.read()
+            if (byte == -1)
+                return -1
+        }
+        val bit = (byte shr index) and 1
+        index--
+        return bit
+    }
+}
+
+class BitOutputStream(private val outputStream: OutputStream) : OutputStream() {
+    private var index = 7
+    private var byte: Int = 0
+
+    override fun close() {
+        flush()
+        outputStream.close()
+    }
+
+    override fun flush() {
+        if (index < 7)
+            outputStream.write(byte)
+        super.flush()
+        outputStream.flush()
+    }
+
+    override fun write(bit: Int) {
+        if (index < 0) {
+            index = 7
+            outputStream.write(byte)
+            byte = 0
+        }
+        byte = byte or (bit shl index)
+        index--
+    }
+
+    fun discardByteIfZero(): Boolean {
+        if (byte == 0) {
+            index = 7
+            byte = 0
+            return true
+        }
+        return false
+    }
+
+    fun write(bits: List<Int>) = bits.forEach { write(it) }
+
 }
 

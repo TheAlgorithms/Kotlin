@@ -1,9 +1,12 @@
 package compression
 
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
+import java.io.InputStream
+import java.io.OutputStream
 
 @RunWith(Parameterized::class)
 class IntToBitList(private val input: Int, private val expectedList: List<Int>) {
@@ -58,7 +61,7 @@ class ByteArrayToBitArrayTest(private val input: ByteArray, private val expected
 
     @Test
     fun testIsInteger() {
-        val result = input.toBitArray().toList()
+        val result = input.toBitList().toList()
         val expected = expected.replace(" ", "").map { it.toInt() - '0'.toInt() }
         assertEquals(expected, result)
     }
@@ -77,54 +80,157 @@ val loremIpsum = """
 """.trimIndent()
 
 class LempelZivWelchTest {
-    private fun <T> assertEqualArrays(array1: Array<T>, array2: Array<T>, message: String? = null) {
-        val messageString = if (message == null) "" else "($message)"
-        assertEquals("Lengths different $messageString", array1.size, array2.size)
-        for (i in array1.indices)
-            assertEquals("$messageString index: $i => 1: ${array1[i]}, 2: ${array2[i]}", array1[i], array2[i])
+
+    private val result = mutableListOf<Int>()
+    private val bitOutputStream = BitOutputStream(object : OutputStream() {
+        override fun write(b: Int) {
+            result.add(b)
+        }
+    })
+
+    private fun toInputStream(data: List<Int>): BitInputStream {
+        var index = 0
+        return BitInputStream(object : InputStream() {
+            override fun read(): Int {
+                if (index >= data.size)
+                    return -1
+                val value = data[index]
+                index++
+                return value
+            }
+        })
+    }
+
+    @Before
+    fun before() {
+        result.clear()
     }
 
     @Test(timeout = 1000)
-    fun testStringToBitArray() {
-        val data = "Hello hello I'm a data.".toByteArray().toBitArray()
-        val expected = "0100100001100101011011000110110001101111001000000110100001100101011011000110110001101111001000000100100100100111011011010010000001100001001000000110010001100001011101000110000100101110"
-            .map { it.toInt() - '0'.toInt() }.toTypedArray()
-        assertEqualArrays(expected, data)
+    fun testStringToBitList() {
+        val data = "Hello hello I'm a data.".toByteArray().toBitList()
+        val expected =
+            "0100100001100101011011000110110001101111001000000110100001100101011011000110110001101111001000000100100100100111011011010010000001100001001000000110010001100001011101000110000100101110"
+                .map { it.toInt() - '0'.toInt() }
+        assertEquals(expected, data)
     }
+
 
     @Test(timeout = 1000)
     fun testCompression1() {
-        val data = "Hello hello I'm a data.".toByteArray().toBitArray()
-        val expected = "001000010000111000010100110011000100110110111010000000010110011000001001010111010011010010001101111001001000111011111011010101011000001010011000110000010000000000011100001000001011111000010001001010100001010000000"
-            .map { it.toInt() - '0'.toInt() }.toTypedArray()
-        val result = compressDataLzw(data)
-        assertEqualArrays(expected, result)
+        val data = "Hello hello I'm a data.".toByteArray().map { it.toInt() }
+        val expected = listOf(33, 14, 20, 204, 77, 186, 1, 102, 9, 93, 52, 141, 228, 142, 251, 85, 130, 152, 193, 0, 28, 32, 190, 17, 42, 20, 0)
+        compressLzw(toInputStream(data), bitOutputStream)
+        assertEquals(expected, result)
     }
 
-    @Test(timeout = 1000)
-    fun testDecompression1() {
-        val data = "001000010000111000010100110011000100110110111010000000010110011000001001010111010011010010001101111001001000111011111011010101011000001010011000110000010000000000011100001000001011111000010001001010100001010000000"
-            .map { it.toInt() - '0'.toInt() }.toTypedArray()
-        val expected = "0100100001100101011011000110110001101111001000000110100001100101011011000110110001101111001000000100100100100111011011010010000001100001001000000110010001100001011101000110000100101110"
-            .map { it.toInt() - '0'.toInt() }.toTypedArray()
-        val result = decompressDataLzw(data)
-        assertEqualArrays(expected, result)
-    }
-
-    @Test(timeout = 1000)
+    @Test(timeout = 2000)
     fun test1() {
-        val data = "Hello hello I'm a data.".toByteArray().toBitArray()
-        val compressedData = compressDataLzw(data)
-        val decompressedData = decompressDataLzw(compressedData)
-        assertEqualArrays(data, decompressedData)
+        val data = "Hello hello I'm a data.".toByteArray().map { it.toInt() }
+        val intermediaryResult = mutableListOf<Int>()
+        compressLzw(
+            toInputStream(data),
+            BitOutputStream(object : OutputStream() {
+                override fun write(b: Int) {
+                    intermediaryResult.add(b)
+                }
+            })
+        )
+        decompressLzw(toInputStream(intermediaryResult), bitOutputStream)
+        assertEquals(data, result)
     }
 
     @Test(timeout = 1000)
     fun test2() {
-        val data = loremIpsum.toByteArray().toBitArray()
-        val compressedData = compressDataLzw(data)
-        val decompressedData = decompressDataLzw(compressedData)
-        assertEqualArrays(data, decompressedData)
+        val data = loremIpsum.toByteArray().map { it.toInt() }
+        val intermediaryResult = mutableListOf<Int>()
+        compressLzw(
+            toInputStream(data),
+            BitOutputStream(object : OutputStream() {
+                override fun write(b: Int) {
+                    intermediaryResult.add(b)
+                }
+            })
+        )
+        decompressLzw(toInputStream(intermediaryResult), bitOutputStream)
+        assertEquals(data, result)
     }
 
+
+}
+
+class BitInputStreamTest {
+    @Test
+    fun testRead() {
+        val bitInputStream = BitInputStream("test".byteInputStream())
+        val result = mutableListOf<Int>()
+
+        var bit = bitInputStream.read()
+        while (bit != -1) {
+            result.add(bit)
+            bit = bitInputStream.read()
+        }
+
+        assertEquals(
+            listOf(
+                0, 1, 1, 1, 0, 1, 0, 0,
+                0, 1, 1, 0, 0, 1, 0, 1,
+                0, 1, 1, 1, 0, 0, 1, 1,
+                0, 1, 1, 1, 0, 1, 0, 0
+            ), result
+        )
+    }
+}
+
+class BitOutputStreamTest {
+    @Test
+    fun testWrite() {
+        val result = mutableListOf<Int>()
+        val bitOutputStream = BitOutputStream(object : OutputStream() {
+            override fun write(b: Int) {
+                result.add(b)
+            }
+        })
+        listOf(
+            0, 1, 1, 1, 0, 1, 0, 0,
+            0, 1, 1, 0, 0, 1, 0, 1,
+            0, 1, 1, 1, 0, 0, 1, 1,
+            0, 1, 1, 1, 0, 1, 0, 0
+        ).forEach { bitOutputStream.write(it) }
+        bitOutputStream.flush()
+        assertEquals(listOf(116, 101, 115, 116), result)
+    }
+
+    @Test
+    fun testDiscardByteIfZero() {
+        val result = mutableListOf<Int>()
+        val bitOutputStream = BitOutputStream(object : OutputStream() {
+            override fun write(b: Int) {
+                result.add(b)
+            }
+        })
+        listOf(
+            0, 1, 1, 1, 0, 1, 0, 0,
+            0, 0, 0, 0, 0
+        ).forEach { bitOutputStream.write(it) }
+        bitOutputStream.discardByteIfZero()
+        bitOutputStream.flush()
+        assertEquals(listOf(116), result)
+    }
+
+    @Test
+    fun testFlush() {
+        val result = mutableListOf<Int>()
+        val bitOutputStream = BitOutputStream(object : OutputStream() {
+            override fun write(b: Int) {
+                result.add(b)
+            }
+        })
+        listOf(
+            0, 1, 1, 1, 0, 1, 0, 0,
+            0, 0, 0, 1, 0
+        ).forEach { bitOutputStream.write(it) }
+        bitOutputStream.flush()
+        assertEquals(listOf(116, 16), result)
+    }
 }
