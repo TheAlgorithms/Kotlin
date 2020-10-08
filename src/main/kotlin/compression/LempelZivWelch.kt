@@ -6,7 +6,13 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import kotlin.math.log2
 
-typealias Bit = Int
+fun Int.toBitList(): List<Int> {
+    var index = Int.SIZE_BITS - Integer.numberOfLeadingZeros(this)
+    val list = ArrayList<Int>(index)
+    while (index > 0)
+        list.add((this shr --index) and 1)
+    return list
+}
 
 fun Float.isInteger() = this % 1 == 0.0f
 
@@ -17,7 +23,7 @@ fun ByteArray.toBitArray(): Array<Int> {
     var index = 0
     for (byte in this) {
         for (i in 7 downTo 0) {
-            result[index++] = byte.toInt().getBitAt(i)
+            result[index++] = (byte.toInt() shr i) and 1
         }
     }
     return result
@@ -28,19 +34,21 @@ fun ByteArray.toBitArray(): Array<Int> {
  *
  * One of the several implementations of Lempel–Ziv–Welch compression algorithm
  * https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch
+ * Based on the Python version
+ * https://github.com/TheAlgorithms/Python/blob/master/compression/lempel_ziv.py
  *
  * @param data The binary array to compress
  * @return compressed binary array
  */
 
-fun compressDataLzw(data: Array<Bit>): Array<Bit> {
-    var lexicon = HashMap<List<Bit>, List<Bit>>(data.size)
+fun compressDataLzw(data: Array<Int>): Array<Int> {
+    var lexicon = HashMap<List<Int>, List<Int>>(data.size)
     // Original bits
     lexicon[listOf(0)] = listOf(0)
     lexicon[listOf(1)] = listOf(1)
 
-    val result = ArrayList<List<Bit>>(data.size)
-    val current = ArrayList<Bit>(20)
+    val result = ArrayList<List<Int>>(data.size)
+    val current = ArrayList<Int>(20)
 
     var index = lexicon.size
 
@@ -68,7 +76,7 @@ fun compressDataLzw(data: Array<Bit>): Array<Bit> {
             lexicon = lexicon.mapValuesTo(HashMap(lexicon.size * 2)) { (_, value) -> listOf(0) + value }
         }
 
-        lexicon[current + 1] = Integer.toBinaryString(index).toList().map { it.toInt() - '0'.toInt() }
+        lexicon[current + 1] = index.toBitList()
 
         index++
         current.clear()
@@ -91,13 +99,13 @@ fun compressDataLzw(data: Array<Bit>): Array<Bit> {
  * @param data The binary array compressed to decompress
  * @return decompressed binary array
  */
-fun decompressDataLzw(data: Array<Bit>): Array<Bit> {
-    var lexicon = HashMap<List<Bit>, List<Bit>>(data.size / 2)
+fun decompressDataLzw(data: Array<Int>): Array<Int> {
+    var lexicon = HashMap<List<Int>, List<Int>>(data.size / 2)
     lexicon[listOf(0)] = listOf(0)
     lexicon[listOf(1)] = listOf(1)
 
-    val result = ArrayList<List<Bit>>(data.size)
-    val current = ArrayList<Bit>(20)
+    val result = ArrayList<List<Int>>(data.size)
+    val current = ArrayList<Int>(20)
 
     var index = lexicon.size
 
@@ -112,7 +120,7 @@ fun decompressDataLzw(data: Array<Bit>): Array<Bit> {
             lexicon = lexicon.mapKeysTo(HashMap(lexicon.size * 2)) { (key, _) -> listOf(0) + key }
         }
 
-        lexicon[Integer.toBinaryString(index).toList().map { it.toInt() - '0'.toInt() }] = lastMatch + 1
+        lexicon[index.toBitList()] = lastMatch + 1
 
         index++
         current.clear()
