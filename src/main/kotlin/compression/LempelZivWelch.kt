@@ -18,16 +18,6 @@ fun Int.toBitList(): List<Int> {
 
 fun Float.isInteger() = this % 1 == 0.0f
 
-fun ByteArray.toBitList(): List<Int> {
-    val result = ArrayList<Int>(size * 8)
-    for (byte in this) {
-        for (i in 7 downTo 0) {
-            result.add((byte.toInt() shr i) and 1)
-        }
-    }
-    return result
-}
-
 /**
  * Compress an array of bits
  *

@@ -49,24 +49,6 @@ class IsIntegerTest(private val number: Float, private val isInteger: Boolean) {
     }
 }
 
-@RunWith(Parameterized::class)
-class ByteArrayToBitArrayTest(private val input: ByteArray, private val expected: String) {
-    companion object {
-        @JvmStatic
-        @Parameterized.Parameters
-        fun data() = listOf(
-            arrayOf(byteArrayOf(72, 98), "0100 1000 0110 0010")
-        )
-    }
-
-    @Test
-    fun testIsInteger() {
-        val result = input.toBitList().toList()
-        val expected = expected.replace(" ", "").map { it.toInt() - '0'.toInt() }
-        assertEquals(expected, result)
-    }
-}
-
 val loremIpsum = """
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor suscipit interdum. Vestibulum ac molestie felis. Phasellus facilisis ultricies purus eget ultrices. Donec cursus mi sit amet eleifend fermentum. Donec ut leo blandit tellus auctor eleifend. Aenean efficitur euismod leo, sed consequat elit hendrerit ac. Vivamus fermentum lobortis mi, sit amet mattis mauris euismod quis.
 
@@ -105,16 +87,6 @@ class LempelZivWelchTest {
     fun before() {
         result.clear()
     }
-
-    @Test(timeout = 1000)
-    fun testStringToBitList() {
-        val data = "Hello hello I'm a data.".toByteArray().toBitList()
-        val expected =
-            "0100100001100101011011000110110001101111001000000110100001100101011011000110110001101111001000000100100100100111011011010010000001100001001000000110010001100001011101000110000100101110"
-                .map { it.toInt() - '0'.toInt() }
-        assertEquals(expected, data)
-    }
-
 
     @Test(timeout = 1000)
     fun testCompression1() {
