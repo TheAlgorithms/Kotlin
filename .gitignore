@@ -40,3 +40,5 @@ kotlin-ultimate/
 node_modules/
 .rpt2_cache/
 libraries/tools/kotlin-test-nodejs-runner/lib/
+.idea/jarRepositories.xml
+.idea.misc.xml
