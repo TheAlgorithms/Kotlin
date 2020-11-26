@@ -7,7 +7,7 @@ package math
  * @param numbers array to store numbers
  * @return average of given numbers
  */
-fun average(numbers: DoubleArray): Double {
+fun average(numbers: Array<Double>): Double {
     var sum = 0.0
     for (number in numbers) {
         sum += number
@@ -21,7 +21,7 @@ fun average(numbers: DoubleArray): Double {
  * @param numbers array to store numbers
  * @return average of given numbers
  */
-fun average(numbers: IntArray) : Int {
+fun average(numbers: Array<Int>) : Int {
     var sum = 0
     for (number in numbers) {
         sum += number
