@@ -13,7 +13,7 @@ package math
  * @param n the number you are looking for its fibonacciNumber
  * @return the fibonacciNumber
  */
-fun <T : Comparable<T>> ffibonacci(n: Long): Long {
+fun <T : Comparable<T>> fibonacci(n: Long): Long {
     if (n <= 1) {
         return 1
     } else {
