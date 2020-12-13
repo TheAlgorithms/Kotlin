@@ -1,4 +1,4 @@
-package data_structurs
+package data_structures
 
 /**
  * A linked list has the concept of a head and tail, which refers to the first and last nodes of the list respectively

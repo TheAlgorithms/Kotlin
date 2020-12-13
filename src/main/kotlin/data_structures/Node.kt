@@ -1,4 +1,4 @@
-package data_structurs
+package data_structures
 
 /**
  * linked list is a chain of nodes. Nodes have two responsibilities:

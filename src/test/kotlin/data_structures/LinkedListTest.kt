@@ -1,6 +1,5 @@
-package data_structure
+package data_structures
 
-import data_structurs.LinkedList
 import org.junit.Test
 
 class LinkedListTest {
