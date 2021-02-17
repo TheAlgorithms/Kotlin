@@ -3,6 +3,8 @@
 ## Src
   * Main
     * Kotlin
+      * Dynamicprogramming
+        * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/Factorial.kt)
       * Search
         * [Binarysearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/BinarySearch.kt)
         * [Linearsearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/LinearSearch.kt)
@@ -14,6 +16,8 @@
         * [Quicksort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/QuickSort.kt)
         * [Selectionsort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/SelectionSort.kt)
   * Test
+      * Dynamicprogramming
+        * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/FactorialTest.kt)
       * Search
         * [Binarysearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/BinarySearchTest.kt)
         * [Linearsearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/LinearSearchTest.kt)
