@@ -8,6 +8,7 @@
       * Search
         * [Binarysearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/BinarySearch.kt)
         * [Linearsearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/LinearSearch.kt)
+        * [Ternarysearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/TernarySearch.kt)
       * Sort
         * [Bubblesort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/BubbleSort.kt)
         * [Heapsort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/HeapSort.kt)
@@ -21,6 +22,7 @@
       * Search
         * [Binarysearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/BinarySearchTest.kt)
         * [Linearsearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/LinearSearchTest.kt)
+        * [Ternarysearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/TernarySearchTest.kt)
       * Sort
         * [Bubblesorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/BubbleSortTest.kt)
         * [Heapsorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/HeapSortTest.kt)
