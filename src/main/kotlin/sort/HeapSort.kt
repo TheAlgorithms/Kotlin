@@ -11,7 +11,7 @@ package sort
  * Average-case performance     O(n*log(n))
  * Worst-case space complexity  O(1) (auxiliary)
  */
-fun <T: Comparable<T>> heapSort(array: Array<T>) {
+fun <T : Comparable<T>> heapSort(array: Array<T>) {
     buildMaxHeap(array)
     transformMaxHeapToSortedArray(array)
 }
@@ -23,16 +23,16 @@ fun <T: Comparable<T>> heapSort(array: Array<T>) {
  * @param array The array containing the elements
  * @param index Index of the currently largest element
  */
-fun <T: Comparable<T>> maxheapify(array: Array<T>, heapSize: Int, index: Int) {
+fun <T : Comparable<T>> maxheapify(array: Array<T>, heapSize: Int, index: Int) {
     val left = 2 * index + 1
     val right = 2 * index + 2
     var largest = index
 
-    if(left < heapSize && array[left] > array[largest])
+    if (left < heapSize && array[left] > array[largest])
         largest = left
-    if(right < heapSize && array[right] > array[largest])
+    if (right < heapSize && array[right] > array[largest])
         largest = right
-    if(largest != index) {
+    if (largest != index) {
         swapElements(array, index, largest)
         maxheapify(array, heapSize, largest)
     }
@@ -43,9 +43,9 @@ fun <T: Comparable<T>> maxheapify(array: Array<T>, heapSize: Int, index: Int) {
  *
  * @param array The array containing the elements
  */
-private fun <T: Comparable<T>> buildMaxHeap(array: Array<T>) {
+private fun <T : Comparable<T>> buildMaxHeap(array: Array<T>) {
     val n = array.size
-    for(i in (n / 2 - 1) downTo 0)
+    for (i in (n / 2 - 1) downTo 0)
         maxheapify(array, n, i)
 }
 
@@ -55,8 +55,8 @@ private fun <T: Comparable<T>> buildMaxHeap(array: Array<T>) {
  *
  * @param array The array containing the elements (max heap representation)
  */
-private fun <T: Comparable<T>> transformMaxHeapToSortedArray(array: Array<T>) {
-    for(i in (array.size - 1) downTo 0) {
+private fun <T : Comparable<T>> transformMaxHeapToSortedArray(array: Array<T>) {
+    for (i in (array.size - 1) downTo 0) {
         swapElements(array, i, 0)
         maxheapify(array, i, 0)
     }

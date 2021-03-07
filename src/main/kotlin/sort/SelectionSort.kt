@@ -11,12 +11,12 @@ package sort
  * Average performance	O(n^2)
  * Worst-case space complexity	O(1)
  **/
-fun <T: Comparable<T>> selectionSort(array: Array<T>) {
+fun <T : Comparable<T>> selectionSort(array: Array<T>) {
     val length = array.size - 1
 
     for (i in 0..length) {
         var idx = i
-        for (j in i+1..length) {
+        for (j in i + 1..length) {
             if (array[j] < array[idx]) {
                 idx = j
             }

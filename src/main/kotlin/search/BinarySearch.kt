@@ -14,7 +14,7 @@ package search
  * @param key is an element which should be found
  * @return index of the element
  */
-fun <T: Comparable<T>> binarySearch(array: Array<T>, key: T): Int {
+fun <T : Comparable<T>> binarySearch(array: Array<T>, key: T): Int {
     return binarySearchHelper(array, key, 0, array.size - 1)
 }
 
@@ -23,7 +23,7 @@ fun <T: Comparable<T>> binarySearch(array: Array<T>, key: T): Int {
  * @param key The element you are looking for
  * @return the location of the key or -1 if the element is not found
  **/
-fun <T: Comparable<T>> binarySearchHelper(array: Array<T>, key: T, start: Int, end: Int): Int {
+fun <T : Comparable<T>> binarySearchHelper(array: Array<T>, key: T, start: Int, end: Int): Int {
     if (start > end) {
         return -1
     }
