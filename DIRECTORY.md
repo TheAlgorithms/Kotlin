@@ -7,8 +7,7 @@
         * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/Factorial.kt)
       * Math
         * [Average](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Average.kt)
-      * Mathematics
-        * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/mathematics/Factorial.kt)
+        * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Factorial.kt)
       * Search
         * [Binarysearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/BinarySearch.kt)
         * [Linearsearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/LinearSearch.kt)
@@ -25,8 +24,7 @@
         * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/FactorialTest.kt)
       * Math
         * [Averagetest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/AverageTest.kt)
-      * Mathematics
-        * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/mathematics/FactorialTest.kt)
+        * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/FactorialTest.kt)
       * Search
         * [Binarysearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/BinarySearchTest.kt)
         * [Linearsearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/LinearSearchTest.kt)
