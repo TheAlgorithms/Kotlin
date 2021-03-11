@@ -19,7 +19,6 @@ class Median {
     @Test
     fun testMedianWithNegatives() {
         val array = intArrayOf( 2, 3, 4, -2, -8, -3)
-        print(median(array))
         assert(median(array) == 0.0)
     }
 }
