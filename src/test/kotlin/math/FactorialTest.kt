@@ -7,21 +7,21 @@ class FactorialTest {
 
     @Test
     fun testFactorialNormal() {
-        val input = 6
-        val expectedFactorial = 720
+        val input = 6L
+        val expectedFactorial = 720L
         assert(getFactorial(input) == expectedFactorial)
     }
 
     @Test(expected = InvalidParameterException::class)
     fun testFactorialOfNegativeNumber() {
-        val input = -1
+        val input = -1L
         getFactorial(input)
     }
 
     @Test
     fun testFactorialOfZero() {
-        val input = 0
-        val expectedFactorial = 1
+        val input = 0L
+        val expectedFactorial = 1L
         assert(getFactorial(input) == expectedFactorial)
     }
 
