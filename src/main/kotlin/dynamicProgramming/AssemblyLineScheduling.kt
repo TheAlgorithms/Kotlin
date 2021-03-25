@@ -5,7 +5,7 @@ import kotlin.math.min
 
 /*
  * This is a dynamic programming implementation of assembly line scheduling.
- * @Params n- number of stations, a- service time at  each station, t- line switch time from each station, e- entry time, x- exit time
+ * @Params n- number of stations, a- service time at each station, t- line switch time from each station, e- entry time, x- exit time
  * @Return minimum time to cross n stations
  * */
 fun AssemblyLineScheduling(n:Int,a:Array<IntArray>,t:Array<IntArray>,e:IntArray,x:IntArray):Int {
