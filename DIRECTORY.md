@@ -4,6 +4,7 @@
   * Main
     * Kotlin
       * Dynamicprogramming
+        * [Assemblylinescheduling](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/AssemblyLineScheduling.kt)
         * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/Factorial.kt)
       * Math
         * [Average](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Average.kt)
@@ -21,6 +22,7 @@
         * [Selectionsort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/SelectionSort.kt)
   * Test
       * Dynamicprogramming
+        * [Assemblylineschedulingtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/AssemblyLineSchedulingTest.kt)
         * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/FactorialTest.kt)
       * Math
         * [Averagetest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/AverageTest.kt)
