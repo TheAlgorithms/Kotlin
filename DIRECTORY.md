@@ -6,6 +6,7 @@
       * Dynamicprogramming
         * [Assemblylinescheduling](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/AssemblyLineScheduling.kt)
         * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/Factorial.kt)
+        * [Zerooneknapsackproblem](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/ZeroOneKnapsackProblem.kt)
       * Math
         * [Average](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Average.kt)
         * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Factorial.kt)
@@ -24,6 +25,7 @@
       * Dynamicprogramming
         * [Assemblylineschedulingtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/AssemblyLineSchedulingTest.kt)
         * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/FactorialTest.kt)
+        * [Zerooneknapsackproblemtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/ZeroOneKnapsackProblemTest.kt)
       * Math
         * [Averagetest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/AverageTest.kt)
         * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/FactorialTest.kt)
