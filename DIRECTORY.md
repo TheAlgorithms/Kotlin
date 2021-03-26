@@ -10,6 +10,7 @@
       * Math
         * [Average](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Average.kt)
         * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Factorial.kt)
+        * [Twosum](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/TwoSum.kt)
       * Search
         * [Binarysearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/BinarySearch.kt)
         * [Linearsearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/LinearSearch.kt)
@@ -29,6 +30,7 @@
       * Math
         * [Averagetest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/AverageTest.kt)
         * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/FactorialTest.kt)
+        * [Twosum](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/TwoSum.kt)
       * Search
         * [Binarysearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/BinarySearchTest.kt)
         * [Linearsearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/LinearSearchTest.kt)
