@@ -2,6 +2,11 @@ package math
 /**
  * Approach 1: Brute Force
  *
+ * Complexity Analysis:
+ *
+ * Time complexity: O(n^2)
+ * Space complexity: O(1)
+ *
  * Try all the pairs in the array and see if any of them add up to the target number.
  * @param nums Array of integers.
  * @param target Integer target.
