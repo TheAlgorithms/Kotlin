@@ -3,6 +3,8 @@
 ## Src
   * Main
     * Kotlin
+      * Dynamic Programming
+        * [Palindromepartitioning](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamic_programming/PalindromePartitioning.kt)
       * Dynamicprogramming
         * [Assemblylinescheduling](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/AssemblyLineScheduling.kt)
         * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/Factorial.kt)
@@ -23,6 +25,8 @@
         * [Quicksort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/QuickSort.kt)
         * [Selectionsort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/SelectionSort.kt)
   * Test
+      * Dynamic Programming
+        * [Palindromepartitioningtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamic_programming/PalindromePartitioningTest.kt)
       * Dynamicprogramming
         * [Assemblylineschedulingtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/AssemblyLineSchedulingTest.kt)
         * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/FactorialTest.kt)
