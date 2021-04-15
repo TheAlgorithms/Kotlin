@@ -36,6 +36,7 @@ build/
 .idea/inspectionProfiles/profiles_settings.xml
 .idea/.name
 .idea/artifacts/dist_auto_*
+.idea/misc.xml
 kotlin-ultimate/
 node_modules/
 .rpt2_cache/
