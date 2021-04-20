@@ -2,15 +2,22 @@ package dynamicProgramming
 
 import kotlin.math.max
 
-fun lcs(X: String, Y: String): Int {
-    val L = Array(X.length + 1) { IntArray(Y.length + 1) }
+/* This algorithm is Longest Common Subsequence
 
-    for (i in 0..X.length) {
-        for (j in 0..Y.length) {
+ * @param  s1,s2 - strings to be compared
+ * @return Length of longest common subsequence between two strings.
+   Eg., for stage and sale it is 3.(sae is the longest common subsequence)
+ */
+
+fun lcs(s1: String, s2: String): Int {
+    val L = Array(s1.length + 1) { IntArray(s2.length + 1) }
+
+    for (i in 0..s1.length) {
+        for (j in 0..s2.length) {
             if (i == 0 || j == 0) L[i][j] = 0
-            else if (X[i - 1] == Y[j - 1]) L[i][j] = L[i - 1][j - 1] + 1
+            else if (s1[i - 1] == s2[j - 1]) L[i][j] = L[i - 1][j - 1] + 1
             else L[i][j] = max(L[i - 1][j], L[i][j - 1])
         }
     }
-    return L[X.length][Y.length]
+    return L[s1.length][s2.length]
 }
