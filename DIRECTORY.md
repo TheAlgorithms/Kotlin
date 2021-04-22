@@ -7,8 +7,11 @@
         * [Palindromepartitioning](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamic_programming/PalindromePartitioning.kt)
       * Dynamicprogramming
         * [Assemblylinescheduling](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/AssemblyLineScheduling.kt)
+        * [Editdistance](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/EditDistance.kt)
         * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/Factorial.kt)
         * [Isprime](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/isPrime.kt)
+        * [Matrixchainmultiplication](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/MatrixChainMultiplication.kt)
+        * [Rodcuttingproblem](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/RodCuttingProblem.kt)
         * [Zerooneknapsackproblem](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/ZeroOneKnapsackProblem.kt)
       * Math
         * [Average](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Average.kt)
@@ -17,6 +20,7 @@
         * [Twosum](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/TwoSum.kt)
       * Search
         * [Binarysearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/BinarySearch.kt)
+        * [Interpolationsearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/InterpolationSearch.kt)
         * [Linearsearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/LinearSearch.kt)
         * [Ternarysearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/TernarySearch.kt)
       * Sort
@@ -31,8 +35,11 @@
         * [Palindromepartitioningtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamic_programming/PalindromePartitioningTest.kt)
       * Dynamicprogramming
         * [Assemblylineschedulingtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/AssemblyLineSchedulingTest.kt)
+        * [Editdistancetest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/EditDistanceTest.kt)
         * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/FactorialTest.kt)
         * [Isprime](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/isPrime.kt)
+        * [Matrixchainmultiplicationtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/MatrixChainMultiplicationTest.kt)
+        * [Rodcuttingproblemtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/RodCuttingProblemTest.kt)
         * [Zerooneknapsackproblemtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/ZeroOneKnapsackProblemTest.kt)
       * Math
         * [Averagetest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/AverageTest.kt)
@@ -41,6 +48,7 @@
         * [Twosum](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/TwoSum.kt)
       * Search
         * [Binarysearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/BinarySearchTest.kt)
+        * [Interpolationsearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/InterpolationSearchTest.kt)
         * [Linearsearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/LinearSearchTest.kt)
         * [Ternarysearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/TernarySearchTest.kt)
       * Sort
