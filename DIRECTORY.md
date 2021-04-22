@@ -10,8 +10,11 @@
         * [Editdistance](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/EditDistance.kt)
         * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/Factorial.kt)
         * [Isprime](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/isPrime.kt)
+        * [Lcs](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/LCS.kt)
         * [Matrixchainmultiplication](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/MatrixChainMultiplication.kt)
         * [Rodcuttingproblem](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/RodCuttingProblem.kt)
+        * [Unboundedknapsack](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/UnboundedKnapsack.kt)
+        * [Weightedjobscheduling](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/WeightedJobScheduling.kt)
         * [Zerooneknapsackproblem](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/ZeroOneKnapsackProblem.kt)
       * Math
         * [Average](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Average.kt)
@@ -24,6 +27,7 @@
         * [Linearsearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/LinearSearch.kt)
         * [Ternarysearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/TernarySearch.kt)
       * Sort
+        * [Bricksort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/BrickSort.kt)
         * [Bubblesort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/BubbleSort.kt)
         * [Heapsort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/HeapSort.kt)
         * [Insertionsort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/InsertionSort.kt)
@@ -38,8 +42,11 @@
         * [Editdistancetest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/EditDistanceTest.kt)
         * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/FactorialTest.kt)
         * [Isprime](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/isPrime.kt)
+        * [Lcstest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/LCSTest.kt)
         * [Matrixchainmultiplicationtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/MatrixChainMultiplicationTest.kt)
         * [Rodcuttingproblemtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/RodCuttingProblemTest.kt)
+        * [Unboundedknapsacktest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/UnboundedKnapsackTest.kt)
+        * [Weightedjobschedulingtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/WeightedJobSchedulingTest.kt)
         * [Zerooneknapsackproblemtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/ZeroOneKnapsackProblemTest.kt)
       * Math
         * [Averagetest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/AverageTest.kt)
@@ -52,6 +59,7 @@
         * [Linearsearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/LinearSearchTest.kt)
         * [Ternarysearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/TernarySearchTest.kt)
       * Sort
+        * [Bricksorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/BrickSortTest.kt)
         * [Bubblesorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/BubbleSortTest.kt)
         * [Heapsorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/HeapSortTest.kt)
         * [Insertionsorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/InsertionSortTest.kt)
