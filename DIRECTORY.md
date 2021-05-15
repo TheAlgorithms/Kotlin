@@ -17,6 +17,7 @@
         * [Weightedjobscheduling](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/WeightedJobScheduling.kt)
         * [Zerooneknapsackproblem](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamicProgramming/ZeroOneKnapsackProblem.kt)
       * Math
+        * [Area](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Area.kt)
         * [Average](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Average.kt)
         * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Factorial.kt)
         * [Median](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Median.kt)
@@ -49,6 +50,7 @@
         * [Weightedjobschedulingtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/WeightedJobSchedulingTest.kt)
         * [Zerooneknapsackproblemtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamicProgramming/ZeroOneKnapsackProblemTest.kt)
       * Math
+        * [Areatest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/AreaTest.kt)
         * [Averagetest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/AverageTest.kt)
         * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/FactorialTest.kt)
         * [Median](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/Median.kt)
