@@ -22,6 +22,8 @@
         * [Factorial](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Factorial.kt)
         * [Median](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/Median.kt)
         * [Twosum](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/math/TwoSum.kt)
+      * Other
+        * [Palindrome](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/other/Palindrome.kt)
       * Search
         * [Binarysearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/BinarySearch.kt)
         * [Interpolationsearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/InterpolationSearch.kt)
@@ -55,6 +57,8 @@
         * [Factorialtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/FactorialTest.kt)
         * [Median](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/Median.kt)
         * [Twosum](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/math/TwoSum.kt)
+      * Other
+        * [Palindrometest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/other/PalindromeTest.kt)
       * Search
         * [Binarysearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/BinarySearchTest.kt)
         * [Interpolationsearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/InterpolationSearchTest.kt)
