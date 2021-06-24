@@ -27,6 +27,7 @@
       * Search
         * [Binarysearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/BinarySearch.kt)
         * [Interpolationsearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/InterpolationSearch.kt)
+        * [Jumpsearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/JumpSearch.kt)
         * [Linearsearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/LinearSearch.kt)
         * [Ternarysearch](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/TernarySearch.kt)
       * Sort
@@ -62,6 +63,7 @@
       * Search
         * [Binarysearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/BinarySearchTest.kt)
         * [Interpolationsearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/InterpolationSearchTest.kt)
+        * [Jumpsearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/JumpSearchTest.kt)
         * [Linearsearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/LinearSearchTest.kt)
         * [Ternarysearchtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/search/TernarySearchTest.kt)
       * Sort
