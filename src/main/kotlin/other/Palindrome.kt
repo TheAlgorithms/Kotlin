@@ -21,7 +21,7 @@ fun isPalindrome(text: String): Boolean {
     for(i in normalizedText.indices)
         if(normalizedText[i] != normalizedText[normalizedText.length - (i + 1)])
             return false
-    return true;
+    return true
 }
 
 
