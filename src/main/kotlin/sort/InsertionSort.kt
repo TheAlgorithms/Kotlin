@@ -19,7 +19,7 @@ fun <T : Comparable<T>> insertionSort(array: Array<T>) {
         var idx = i
 
         for (j in i - 1 downTo 0) {
-            if (array[j].compareTo(key) > 0) {
+            if (array[j] > key) {
                 array[j + 1] = array[j]
                 idx = j
             } else {

@@ -10,14 +10,14 @@ import kotlin.math.min
  * */
 fun assemblyLineScheduling(n:Int, a:Array<IntArray>, t:Array<IntArray>, e:IntArray, x:IntArray):Int {
 
-    var line1 =  IntArray(n)
-    var line2 = IntArray(n)
+    val line1 = IntArray(n)
+    val line2 = IntArray(n)
 
     line1[0] = e[0] + a[0][0]
 
     line2[0] = e[1] + a[1][0]
 
-    for(i in 1..n-1)
+    for(i in 1 until n)
     {
         line1[i] = min(line1[i - 1] + a[0][i],
                 line2[i - 1] + t[1][i] + a[0][i])

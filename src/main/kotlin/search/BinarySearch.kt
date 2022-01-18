@@ -32,7 +32,7 @@ fun <T : Comparable<T>> binarySearchHelper(array: Array<T>, key: T, start: Int, 
 
     return when {
         array[mid].compareTo(key) == 0 -> mid
-        array[mid].compareTo(key) > 0 -> binarySearchHelper(array, key, start, mid - 1)
+        array[mid] > key -> binarySearchHelper(array, key, start, mid - 1)
         else -> binarySearchHelper(array, key, mid + 1, end)
     }
 }
