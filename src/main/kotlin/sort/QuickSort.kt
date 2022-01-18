@@ -7,8 +7,8 @@ package sort
  * It is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot.
  *
  * Worst-case performance	    O(n^2)
- * Best-case performance	    O(nLogn)
- * Average performance      	O(nLogn)
+ * Best-case performance	    O(n*log(n))
+ * Average performance      	O(n*log(n))
  * Worst-case space complexity	O(1)
  **/
 fun <T : Comparable<T>> quickSort(array: Array<T>, low: Int, high: Int) {

@@ -6,11 +6,11 @@ package sort
  * @param array The array to be sorted
  * It is a Divide and Conquer algorithm. It sorts the array by dividing it into two halves and comparing the elements.
  *
- * Worst-case performance	    O(n log n)
- * Best-case performance	    O(n log n)
- * Average performance      	O(n log n)
+ * Worst-case performance	    O(n*log(n))
+ * Best-case performance	    O(n*log(n))
+ * Average performance      	O(n*log(n))
  * Worst-case space complexity	O(n)
- */
+ **/
 fun <T : Comparable<T>> mergeSort(array: Array<T>, start: Int, end: Int) {
 
     val temp = arrayOfNulls<Comparable<*>>(array.size) as Array<T>
