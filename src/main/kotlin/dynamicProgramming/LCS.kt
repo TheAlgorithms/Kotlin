@@ -10,14 +10,14 @@ import kotlin.math.max
  */
 
 fun lcs(s1: String, s2: String): Int {
-    val L = Array(s1.length + 1) { IntArray(s2.length + 1) }
+    val l = Array(s1.length + 1) { IntArray(s2.length + 1) }
 
     for (i in 0..s1.length) {
         for (j in 0..s2.length) {
-            if (i == 0 || j == 0) L[i][j] = 0
-            else if (s1[i - 1] == s2[j - 1]) L[i][j] = L[i - 1][j - 1] + 1
-            else L[i][j] = max(L[i - 1][j], L[i][j - 1])
+            if (i == 0 || j == 0) l[i][j] = 0
+            else if (s1[i - 1] == s2[j - 1]) l[i][j] = l[i - 1][j - 1] + 1
+            else l[i][j] = max(l[i - 1][j], l[i][j - 1])
         }
     }
-    return L[s1.length][s2.length]
+    return l[s1.length][s2.length]
 }
