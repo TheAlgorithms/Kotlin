@@ -1,6 +1,7 @@
 package other
 
 import java.text.Normalizer
+import java.util.Locale
 import java.util.regex.Pattern
 
 /**
@@ -30,7 +31,7 @@ fun String.normalize(): String {
         .compile("\\p{InCombiningDiacriticalMarks}+")
         .matcher(nfdNormalizedString)
         .replaceAll("")
-        .toLowerCase()
+        .lowercase(Locale.getDefault())
         .replace(" ", "")
 
 }
