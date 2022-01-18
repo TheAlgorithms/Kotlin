@@ -1,4 +1,4 @@
-package mathematics
+package math
 
 import org.junit.Test
 import java.security.InvalidParameterException

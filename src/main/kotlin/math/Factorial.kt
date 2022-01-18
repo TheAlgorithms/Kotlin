@@ -1,4 +1,4 @@
-package mathematics
+package math
 
 import java.security.InvalidParameterException
 
