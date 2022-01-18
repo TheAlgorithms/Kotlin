@@ -10,8 +10,8 @@ import kotlin.math.min
  * */
 fun AssemblyLineScheduling(n:Int,a:Array<IntArray>,t:Array<IntArray>,e:IntArray,x:IntArray):Int {
 
-    var L1:IntArray =  IntArray(n)
-    var L2:IntArray = IntArray(n)
+    var L1 =  IntArray(n)
+    var L2 = IntArray(n)
     var i=0
 
     L1[0] = e[0] + a[0][0]
