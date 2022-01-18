@@ -13,9 +13,9 @@ package dynamic_programming
 
 
 /**
- * @param String is the string to be checked
- * @param Int is the starting index of the string in consideration
- * @param Int is the ending index of the string in consideration
+ * @param string is the string to be checked
+ * @param i is the starting index of the string in consideration
+ * @param j is the ending index of the string in consideration
  * @return whether string is a palindrome or not
  **/
 fun isPalindrome(string: String, i: Int, j: Int): Boolean {
@@ -29,9 +29,9 @@ fun isPalindrome(string: String, i: Int, j: Int): Boolean {
 
 
 /**
- * @param String is the string to be checked
- * @param Int is the starting index of the string in consideration
- * @param Int is the ending index of the string in consideration
+ * @param string is the string to be checked
+ * @param i is the starting index of the string in consideration
+ * @param j is the ending index of the string in consideration
  * @return minimum number of partitions required
  **/
 fun palindromePartition(string: String, i: Int, j: Int): Int {
@@ -63,7 +63,7 @@ lateinit var dp: Array<Array<Int>>
 
 
 /**
- * @param String the string on which algorithm is to be operated
+ * @param string the string on which algorithm is to be operated
  */
 fun initialize(string: String): Int {
     dp = Array(string.length) { Array(string.length) { -1 } }

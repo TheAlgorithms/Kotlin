@@ -6,9 +6,9 @@ package sort
  * @param array The array to be sorted
  * Sorts the array in increasing order
  *
- * Worst-case performance	O(n^2)
- * Best-case performance	O(n)
- * Average performance	O(n^2)
+ * Worst-case performance   	O(n^2)
+ * Best-case performance    	O(n)
+ * Average performance      	O(n^2)
  * Worst-case space complexity	O(1)
  **/
 fun <T : Comparable<T>> insertionSort(array: Array<T>) {
@@ -19,7 +19,7 @@ fun <T : Comparable<T>> insertionSort(array: Array<T>) {
         var idx = i
 
         for (j in i - 1 downTo 0) {
-            if (array[j].compareTo(key) > 0) {
+            if (array[j] > key) {
                 array[j + 1] = array[j]
                 idx = j
             } else {

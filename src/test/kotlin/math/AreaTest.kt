@@ -1,7 +1,6 @@
 package math
 
 import org.junit.Test
-import java.lang.IllegalArgumentException
 
 class AreaTest {
     @Test

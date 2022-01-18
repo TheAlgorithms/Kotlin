@@ -5,13 +5,13 @@ package dynamicProgramming
  * @Params p- array which represents the chain of matrices such that the ith matrix Ai is of dimension p[i-1] x p[i]
  * @Return minimum number of multiplications needed to multiply the chain
  * */
-fun MatrixChainOrder(p: IntArray): Int {
+fun matrixChainOrder(p: IntArray): Int {
 
     val m = Array(p.size) { IntArray(p.size) }
     var i: Int
     var j: Int
     var k: Int
-    var L: Int
+    var l: Int
     var q: Int
 
     i = 1
@@ -20,11 +20,11 @@ fun MatrixChainOrder(p: IntArray): Int {
         i++
     }
 
-    L = 2
-    while (L < p.size) {
+    l = 2
+    while (l < p.size) {
         i = 1
-        while (i < p.size - L + 1) {
-            j = i + L - 1
+        while (i < p.size - l + 1) {
+            j = i + l - 1
             if (j == p.size) {
                 i++
                 continue
@@ -40,7 +40,7 @@ fun MatrixChainOrder(p: IntArray): Int {
             }
             i++
         }
-        L++
+        l++
     }
     return m[1][p.size - 1]
 }

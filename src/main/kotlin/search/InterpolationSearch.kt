@@ -3,9 +3,9 @@ package search
 /**
  * Interpolation search is an algorithm which finds the position of a target value within an array (Sorted)
  *
- * Worst-case performance	O(n)
- * Best-case performance	O(1)
- * Average performance	O(log log n)
+ * Worst-case performance	    O(n)
+ * Best-case performance	    O(1)
+ * Average performance	        O(log(log(n)))
  * Worst-case space complexity	O(1)
  */
 

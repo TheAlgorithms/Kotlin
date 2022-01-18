@@ -3,9 +3,9 @@ package search
 /**
  * Binary search is an algorithm which finds the position of a target value within an array (Sorted)
  *
- * Worst-case performance	O(log(n))
- * Best-case performance	O(1)
- * Average performance	O(log(n))
+ * Worst-case performance	    O(log(n))
+ * Best-case performance	    O(1)
+ * Average performance	        O(log(n))
  * Worst-case space complexity	O(1)
  */
 
@@ -32,7 +32,7 @@ fun <T : Comparable<T>> binarySearchHelper(array: Array<T>, key: T, start: Int, 
 
     return when {
         array[mid].compareTo(key) == 0 -> mid
-        array[mid].compareTo(key) > 0 -> binarySearchHelper(array, key, start, mid - 1)
+        array[mid] > key -> binarySearchHelper(array, key, start, mid - 1)
         else -> binarySearchHelper(array, key, mid + 1, end)
     }
 }

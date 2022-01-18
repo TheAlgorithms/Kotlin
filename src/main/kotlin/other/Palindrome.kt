@@ -1,6 +1,7 @@
 package other
 
 import java.text.Normalizer
+import java.util.Locale
 import java.util.regex.Pattern
 
 /**
@@ -20,7 +21,7 @@ fun isPalindrome(text: String): Boolean {
     for(i in normalizedText.indices)
         if(normalizedText[i] != normalizedText[normalizedText.length - (i + 1)])
             return false
-    return true;
+    return true
 }
 
 
@@ -30,7 +31,7 @@ fun String.normalize(): String {
         .compile("\\p{InCombiningDiacriticalMarks}+")
         .matcher(nfdNormalizedString)
         .replaceAll("")
-        .toLowerCase()
+        .lowercase(Locale.getDefault())
         .replace(" ", "")
 
 }

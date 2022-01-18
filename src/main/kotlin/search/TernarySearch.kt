@@ -3,11 +3,9 @@ package search
 /**
  * Complexity Analysis:
  * 
- * Time Complexity: O(log3 n)
- * Space Complexity: O(1)
- * 
- */
-
+ * Time Complexity:     O(log3 n)
+ * Space Complexity:    O(1)
+ **/
 fun ternarySearch(l: Double, r: Double, func: (Double) -> Double, eps: Double = 1e-3): Double {
     var left = l
     var right = r

@@ -1,6 +1,5 @@
 package math
 
-import java.lang.IllegalArgumentException
 import kotlin.math.pow
 
 /**
