@@ -8,7 +8,7 @@ import kotlin.math.max
  * @return Maximum value that can be obtained
  */
 
-fun zerooneknapsack(W:Int, weight: IntArray, values:IntArray, n:Int):Int{
+fun zeroOneKnapsack(W:Int, weight: IntArray, values:IntArray, n:Int):Int{
     if (W<0) return 0
     val k = Array(n+1) {IntArray(W+1) {0} }
     for (i in 0..n)
