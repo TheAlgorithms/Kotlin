@@ -1,6 +1,5 @@
 package math
 
-import math.median
 import org.junit.Test
 
 class Median {
