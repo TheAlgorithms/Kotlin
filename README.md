@@ -15,3 +15,6 @@
 - Make the changes on your local machine
 - Push the changes to the forked repository
 - Raise a PR against the master branch
+
+## Algorithms
+Our [directory](DIRECTORY.md) has the full list of applications.
