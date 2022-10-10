@@ -37,6 +37,7 @@
         * [Mergesort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/MergeSort.kt)
         * [Quicksort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/QuickSort.kt)
         * [Selectionsort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/SelectionSort.kt)
+        * [Shellsort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/ShellSort.kt)
   * Test
       * Dynamic Programming
         * [Palindromepartitioningtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamic_programming/PalindromePartitioningTest.kt)
@@ -72,3 +73,4 @@
         * [Mergesorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/MergeSortTest.kt)
         * [Quicksorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/QuickSortTest.kt)
         * [Selectionsorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/SelectionSortTest.kt)
+        * [ShellSsorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/ShellSortTest.kt)
