@@ -1,5 +1,6 @@
-package mathematics
+package math
 
+import math.getFactorial
 import org.junit.Test
 import java.security.InvalidParameterException
 
@@ -22,6 +23,13 @@ class FactorialTest {
     fun testFactorialOfZero() {
         val input = 0L
         val expectedFactorial = 1L
+        assert(getFactorial(input) == expectedFactorial)
+    }
+
+    @Test
+    fun testFactorialOfHighValue() {
+        val input = 20000L
+        val expectedFactorial = 0L
         assert(getFactorial(input) == expectedFactorial)
     }
 
