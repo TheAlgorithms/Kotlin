@@ -11,7 +11,7 @@ package sort
  * Average performance	O(n^2)
  * Worst-case space complexity	O(1)
  **/
-fun <T: Comparable<T>> bubbleSort(array: Array<T>) {
+fun <T : Comparable<T>> bubbleSort(array: Array<T>) {
     val length = array.size - 1
 
     for (i in 0..length) {
@@ -35,7 +35,7 @@ fun <T: Comparable<T>> bubbleSort(array: Array<T>) {
  * @param idx2 Index of second element
  * Swaps the element at two indexes
  **/
-fun <T: Comparable<T>> swapElements(array: Array<T>, idx1: Int, idx2: Int) {
+fun <T : Comparable<T>> swapElements(array: Array<T>, idx1: Int, idx2: Int) {
     array[idx1] = array[idx2].also {
         array[idx2] = array[idx1]
     }

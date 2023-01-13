@@ -11,7 +11,7 @@ package sort
  * Average performance      	O(nLogn)
  * Worst-case space complexity	O(1)
  **/
-fun <T: Comparable<T>> quickSort(array: Array<T>, low: Int, high: Int) {
+fun <T : Comparable<T>> quickSort(array: Array<T>, low: Int, high: Int) {
     if (low < high) {
         val pivot = partition(array, low, high)
         quickSort(array, low, pivot - 1)
@@ -27,7 +27,7 @@ fun <T: Comparable<T>> quickSort(array: Array<T>, low: Int, high: Int) {
  * @param high The last index of the array
  *
  * */
-fun <T: Comparable<T>> partition(array: Array<T>, low: Int, high: Int): Int {
+fun <T : Comparable<T>> partition(array: Array<T>, low: Int, high: Int): Int {
 
     var left = low
     var right = high
