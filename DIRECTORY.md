@@ -3,6 +3,9 @@
 ## Src
   * Main
     * Kotlin
+      * Data Structures
+        * [Linkedlist](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/data_structures/LinkedList.kt)
+        * [Node](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/data_structures/Node.kt)
       * Dynamic Programming
         * [Palindromepartitioning](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/dynamic_programming/PalindromePartitioning.kt)
       * Dynamicprogramming
@@ -38,6 +41,8 @@
         * [Quicksort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/QuickSort.kt)
         * [Selectionsort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/SelectionSort.kt)
   * Test
+      * Data Structures
+        * [Linkedlisttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/data_structures/LinkedListTest.kt)
       * Dynamic Programming
         * [Palindromepartitioningtest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/dynamic_programming/PalindromePartitioningTest.kt)
       * Dynamicprogramming
