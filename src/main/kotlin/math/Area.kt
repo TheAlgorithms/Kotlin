@@ -1,6 +1,6 @@
 package math
 
-import java.lang.IllegalArgumentException
+import kotlin.IllegalArgumentException
 import kotlin.math.pow
 
 /**
@@ -51,3 +51,21 @@ fun areaOfACircle(radius: Double) =
         radius > 0 -> Math.PI * radius.pow(2.0)
         else -> throw IllegalArgumentException("Radius must be positive")
     }
+
+
+/**
+ * Calculate the area of a trapezium
+ *
+ * @param parallelSide1 one of the parallel side of the trapezium
+ * @param parallelSide2 second parallel side of the trapezium
+ * @param height distance between these two parallel sides of trapezium
+ * @return area of given circle
+ */
+
+fun areaOfATrapezium(parallelSide1: Double, parallelSide2: Double, height: Double) =
+    when {
+        height > 0 && (parallelSide1 > 0 && parallelSide2 > 0) -> ((parallelSide1 + parallelSide2))/2*height
+        else -> throw IllegalArgumentException("Length of both the parallel side and height should be positive")
+    }
+
+

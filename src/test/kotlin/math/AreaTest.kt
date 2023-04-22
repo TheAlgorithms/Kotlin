@@ -1,7 +1,7 @@
 package math
 
 import org.junit.Test
-import java.lang.IllegalArgumentException
+import kotlin.IllegalArgumentException
 
 class AreaTest {
     @Test
@@ -16,12 +16,16 @@ class AreaTest {
     @Test
     fun testAreaOfATriangle() = assert(areaOfATriangle(5.0, 10.0) == 25.0)
 
+    @Test
+    fun testAreaOfATrapezium() = assert(areaOfATrapezium(6.0, 8.0, 4.0) == 28.0)
+
     @Test(expected = IllegalArgumentException::class)
     fun testAreaWithNegatives() {
         areaOfARectangle(-1.0, 0.0)
         areaOfASquare(-1.0)
         areaOfACircle(-1.0)
         areaOfATriangle(-1.0, 1.0)
+        areaOfATrapezium(-1.0, -1.0, -1.0)
     }
 
     @Test(expected = IllegalArgumentException::class)
@@ -30,5 +34,8 @@ class AreaTest {
         areaOfASquare(0.0)
         areaOfACircle(0.0)
         areaOfATriangle(0.0, 1.0)
+        areaOfATrapezium(0.0, 0.0, 0.0)
     }
+
+
 }
