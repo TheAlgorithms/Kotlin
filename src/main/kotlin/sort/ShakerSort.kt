@@ -1,5 +1,16 @@
 package sort
 
+/**
+ * This function implements the Shaker Sort.
+ *
+ * @param array The array to be sorted
+ * Sorts the array in increasing order
+ *
+ * Worst-case performance       O(n2)
+ * Best-case performance        O(n)
+ * Average-case performance     O(n2)
+ * Worst-case space complexity  O(n2)
+ */
 fun <T : Comparable<T>> shakerSort(arr: Array<T>) {
     var left = 0
     var right = arr.lastIndex
