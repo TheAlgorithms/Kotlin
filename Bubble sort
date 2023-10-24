@@ -1,0 +1,27 @@
+fun bubbleSort(arr: IntArray) {
+    val n = arr.size
+    var swapped: Boolean
+
+    do {
+        swapped = false
+        for (i in 1 until n) {
+            if (arr[i - 1] > arr[i]) {
+                // Swap arr[i-1] and arr[i]
+                val temp = arr[i - 1]
+                arr[i - 1] = arr[i]
+                arr[i] = temp
+                swapped = true
+            }
+        }
+    } while (swapped)
+}
+
+fun main() {
+    val arr = intArrayOf(64, 25, 12, 22, 11)
+    bubbleSort(arr)
+
+    println("Sorted array:")
+    for (element in arr) {
+        print("$element ")
+    }
+}
