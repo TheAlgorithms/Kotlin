@@ -19,7 +19,7 @@ class TwoSumTest {
         array[0] = 3
         array[1] = 3
         val target = 6
-        val result = intArrayOf(0,1)
-        assert(twoSum(array,target).contentEquals(result))
+        val result = intArrayOf(3,3)
+        assert(twoSumOptimised(array,target).contentEquals(result))
     }
 }
