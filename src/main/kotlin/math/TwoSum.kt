@@ -24,3 +24,34 @@ fun twoSum(nums: IntArray, target: Int): IntArray{
     return intArrayOf(0,1)
 
 }
+
+/**
+ * Approach 2: Using HashMap
+ *
+ * Complexity Analysis:
+ *
+ * Time complexity: O(n)
+ * Space complexity: O(n)
+ *
+ * Create an empty mutableMap and for every num in nums
+ * if map contains target-num, return num and target-num,
+ * otherwise add num, this approach returns all distinct pairs
+ * of such pairs.
+ * @param nums Array of integers.
+ * @param target Integer target.
+ * @return Indices of the two numbers such that they add up to target.
+ */
+fun twoSumOptimised(nums: IntArray, target: Int): IntArray{
+
+    val map: MutableMap<Int, Int> = HashMap()
+    for(num in nums) {
+        val targetDiff = target - num;
+        if(map[targetDiff] == null)
+            map[num] = 1
+        else return intArrayOf(num, targetDiff)
+    }
+
+    return intArrayOf(0,1)
+
+
+}
