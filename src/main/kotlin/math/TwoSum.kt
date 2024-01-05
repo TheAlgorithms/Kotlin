@@ -39,19 +39,19 @@ fun twoSum(nums: IntArray, target: Int): IntArray{
  * of such pairs.
  * @param nums Array of integers.
  * @param target Integer target.
- * @return Indices of the two numbers such that they add up to target.
+ * @return the two numbers such that they add up to target.
  */
 fun twoSumOptimised(nums: IntArray, target: Int): IntArray{
 
     val map: MutableMap<Int, Int> = HashMap()
-    for(num in nums) {
+    for(num  in nums) {
         val targetDiff = target - num;
         if(map[targetDiff] == null)
             map[num] = 1
         else return intArrayOf(num, targetDiff)
     }
 
-    return intArrayOf(0,1)
+    return intArrayOf()
 
 
 }
