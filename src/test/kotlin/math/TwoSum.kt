@@ -15,11 +15,11 @@ class TwoSumTest {
 
     @Test
     fun testTwoSumOptimised(){
-        val array = IntArray(2)
-        array[0] = 3
-        array[1] = 3
-        val target = 6
-        val result = intArrayOf(3,3)
-        assert(twoSumOptimised(array,target).contentEquals(result))
+        val array = intArrayOf(1, 0, -1, 2, 4, 5, 3, 2)
+        val target: Int = 4
+        val result = twoSumOptimised(array, target).apply {
+            this.all { it.first + it.second == target }
+        }
+        assert(result.isNotEmpty())
     }
 }
