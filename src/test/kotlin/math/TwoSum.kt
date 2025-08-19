@@ -12,4 +12,14 @@ class TwoSumTest {
         val result = intArrayOf(0,1)
         assert(twoSum(array,target).contentEquals(result))
     }
+
+    @Test
+    fun testTwoSumOptimised(){
+        val array = intArrayOf(1, 0, -1, 2, 4, 5, 3, 2)
+        val target: Int = 4
+        val result = twoSumOptimised(array, target).apply {
+            this.all { it.first + it.second == target }
+        }
+        assert(result.isNotEmpty())
+    }
 }
