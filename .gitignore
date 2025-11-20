@@ -30,3 +30,4 @@ node_modules/
 libraries/tools/kotlin-test-nodejs-runner/lib/
 .idea/jarRepositories.xml
 .idea/misc.xml
+target/
