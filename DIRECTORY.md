@@ -29,6 +29,7 @@
       * Sort
         * [Bricksort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/BrickSort.kt)
         * [Bubblesort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/BubbleSort.kt)
+        * [Cyclesort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/CycleSort.kt)
         * [Heapsort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/HeapSort.kt)
         * [Insertionsort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/InsertionSort.kt)
         * [Mergesort](https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/sort/MergeSort.kt)
@@ -64,6 +65,7 @@
       * Sort
         * [Bricksorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/BrickSortTest.kt)
         * [Bubblesorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/BubbleSortTest.kt)
+        * [Cyclesorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/CycleSortTest.kt)
         * [Heapsorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/HeapSortTest.kt)
         * [Insertionsorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/InsertionSortTest.kt)
         * [Mergesorttest](https://github.com/TheAlgorithms/Kotlin/blob/master/src/test/kotlin/sort/MergeSortTest.kt)
